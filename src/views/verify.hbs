@@ -1,0 +1,20 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/forgot.css" />
+    <title>{{title}}</title>
+  </head>
+  <body class="body-verify">
+    <div class="cont-verify">
+      <h1>Verificación de Correo Electrónico</h1>
+      <p>Hola {{name}}</p>
+      <p>Se ha enviado un correo electrónico de verificación a {{email}}</p>
+      <p>¿No lo has recibido?</p>
+      <div class="cont-btn-verify">
+        <a href="/api/users/resend-verification">Reenviar correo de verificación</a>
+        <a href="/register">Volver al registro</a>
+      </div>
+    </div>
+  </body>
+</html>

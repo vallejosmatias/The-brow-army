@@ -1,0 +1,410 @@
+main{
+  overflow: auto;
+}
+
+.container-cards {
+  display: flex;
+  background-color: #e8e8e8;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.cont-divisas{
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: end;
+}
+
+#divisas{
+  background-color: #e8e8e8;
+  color: #000;
+  border-radius: 8px;
+  margin: 15px;
+  padding: 5px;
+  box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+  border: none  ;
+}
+
+#divisas option{
+  font-size: 18px;
+}
+
+.card h1 {
+  font-size: 20px;
+  padding: 5px 20px;
+  height: 40px;
+  border-bottom: 1px solid #c9c8c8;
+}
+
+.card {
+  padding: 15px;
+  width: 600px;
+  height: auto;
+  border-radius: 30px;
+  background: #e0e0e0;
+  box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+}
+.card2 {
+  width: 300px;
+  height: auto;
+  border-radius: 30px;
+  background: #e0e0e0;
+  box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* btn card2 */
+.input-container {
+    margin: 0 auto;
+  position: relative;
+  display: flex;
+  height: 2.8rem;
+  width: 100%;
+  min-width: 200px;
+  max-width: 250px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.05);
+}
+
+.input-container input {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid rgb(176 190 197);
+  background-color: transparent;
+  padding: 0.625rem 70px 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  color: rgb(69 90 100);
+  outline: none;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-container input:focus {
+  border: 1px solid rgb(215, 184, 199);
+}
+
+.invite-btn {
+  position: absolute;
+  width: 65px;
+  right: 4px;
+  top: 4px;
+  bottom: 4px;
+  z-index: 10;
+  border-radius: 11px;
+  background-color: rgb(114, 112, 113);
+  color: #fff;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  transition: 0.6s ease;
+}
+
+.invite-btn:hover {
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-radius: 11px;
+}
+
+.input-container input:placeholder-shown ~ .invite-btn {
+  pointer-events: none;
+  background-color: gray;
+  opacity: 0.5;
+}
+
+/* card1 */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+  margin: 10px 0;
+  gap: 30px;
+  justify-content: center;
+}
+
+.cart-item h2 {
+  font-size: 18px;
+  display: flex;
+  width: 350px;
+  margin: 0 15px 0 10px;
+  justify-content: start;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 80px;
+  border-radius: 15px;
+}
+
+.cont-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+/* btn borrar */
+.deleteButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.deleteButton svg {
+  width: 44%;
+}
+.deleteButton:hover {
+  background-color: rgb(237, 56, 56);
+  overflow: visible;
+}
+.bin path {
+  transition: all 0.2s;
+}
+.deleteButton:hover .bin path {
+  fill: #fff;
+}
+.deleteButton:active {
+  transform: scale(0.98);
+}
+.tooltip {
+  --tooltip-color: rgb(41, 41, 41);
+  position: absolute;
+  top: -40px;
+  background-color: var(--tooltip-color);
+  color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 8px 12px;
+  font-weight: 600;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.105);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.tooltip::before {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  content: "";
+  background-color: var(--tooltip-color);
+  bottom: -10%;
+}
+.deleteButton:hover .tooltip {
+  opacity: 1;
+}
+
+/* detalles totales */
+.detalles{
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detalles-subtotal{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.detalles-subtotal:first-child{
+    border-top: 1px solid #c9c8c8;
+    padding-top: 15px;
+}
+
+.detalles .total{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 500;
+    height: 40px;
+    padding: 10px 0;
+    border-top: 1px solid #c9c8c8;
+}
+
+/* btn pagar */
+.btn-pagar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    gap: 7px;
+}
+
+.Btn {
+    width: 250px;
+    height: 40px;
+    margin: 10px auto;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+  }
+
+  .btn:nth-child(2){
+    background-color: rgb(255, 255, 255);
+    color: #000;
+  }
+  
+  .svgIcon {
+    width: 16px;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .Btn::before {
+    width: 250px;
+    height: 130px;
+    position: absolute;
+    content: "";
+    background-color: white;
+    border-radius: 50%;
+    left: -100%;
+    top: 0;
+    transition-duration: .3s;
+    mix-blend-mode: difference;
+  }
+
+  .btn:nth-child(2)::before{
+    background-color: rgb(43, 43, 43);
+
+  }
+  
+  .Btn:hover::before {
+    transition-duration: .3s;
+    transform: translate(100%,-50%);
+    border-radius: 0;
+  }
+  
+  .Btn:active {
+    transform: translate(5px,5px);
+    transition-duration: .3s;
+  }
+
+.cart-vacio{
+    padding: 0 20px;
+    margin-top: 15px;
+}
+
+/* pago */
+.container-pagar{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+#transferRadio{
+  margin: 10px 0;
+}
+
+/* Modal CSS */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Fijar el modal en la pantalla */
+  z-index: 100; /* Asegurarse de que esté sobre otros elementos */
+  margin: auto 0;
+  width: 100%;
+  height: 100%;
+  overflow:hidden; /* Habilitar scroll si es necesario */
+  background-color: rgb(0, 0, 0); /* Color de fondo */
+  background-color: rgba(0, 0, 0, 0.4); /* Color de fondo con opacidad */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto 0; /* 15% desde la parte superior y centrado */
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%; /* Ancho del modal */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: end;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button.svelte-1ruergu.svelte-1ruergu{
+  min-width: 100px;
+}
+
+.buttonBackground{
+  background-color: beige;
+}
+
+.text-option{
+  text-align: center;
+  border-bottom: 1px solid #aaa;
+  margin: 0 0 10px;
+}
+
+/* container + btn tranferencia */
+.container-tranfer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-tranfer p{
+  font-size: 12px;
+}
+
+.btn-tranfer-wpp{
+  text-decoration: none;
+  background: linear-gradient(45deg, #ae8625, #f7ef8a, #d2ac47);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #000;
+}
+

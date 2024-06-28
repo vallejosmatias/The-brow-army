@@ -1,0 +1,361 @@
+/* Estilos para el modal */
+#editCourseModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 280px;
+    top: 50px;
+    width: 900px;
+    height: 500px;
+    border-radius: 30px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.819); /* Fondo negro con opacidad */
+    transition: opacity 0.5s ease; /* Transición suave */
+  }
+  
+  /* Contenido del modal */
+  #editCourseModal .modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Centrado vertical y horizontal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Ancho máximo */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra */
+    animation: animatetop 0.4s; /* Animación de entrada */
+  }
+
+  #editCourseForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .edit-modal-bodyleft{
+    display: flex;
+    flex-direction: column;
+  }
+  .edit-modal-bodyright{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Animación de entrada */
+  @keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
+  
+  /* Botón de cerrar */
+  #closeModalBtn {
+    background-color: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    float: right;
+  }
+  
+  .edit-modal{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+  }
+
+  .edit-modal-head{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px; 
+    
+    align-items: center;
+  }
+
+  /* Estilos del formulario */
+  .container-newcourse h2{
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-top: 10px;
+  }
+  
+  form input, form textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 350px;
+  }
+  
+  form button {
+    margin: 15px auto 0;
+    padding: 10px;
+    background-color: rgb(76, 175, 80);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 350px;
+  }
+  
+  form button:hover {
+    background-color: #45a049;
+  }
+  
+  /* crear cursos */
+  .container-newcourse{
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    background-color: #fff;
+    margin: 20px auto;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 30px;
+  }
+
+  .container-groups{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .container-course-list{
+    background-color: #fff;
+    margin: 40px 30px 50px;
+    border-radius: 30px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-course-list ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .container-course-list ul li{
+    background-color: #e8e8e8;
+    margin: 15px;
+    list-style: none;
+    width: 270px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 8px 8px 8px;
+  }
+
+  .container-course-list ul li img{
+    border-radius: 30px;
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+  }
+
+  .container-course-list ul li strong{
+    margin: 5px ;
+    text-transform: capitalize;
+  }
+  .container-course-list ul li h4{
+    font-size: 12px;
+  }
+
+  .editBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(93, 93, 116);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 10px #0000001f;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .editBtn::before {
+    content: "";
+    width: 200%;
+    height: 200%;
+    background-color: rgb(102, 102, 141);
+    position: absolute;
+    z-index: 1;
+    transform: scale(0);
+    transition: all 0.3s;
+    border-radius: 50%;
+    filter: blur(10px);
+  }
+  .editBtn:hover::before {
+    transform: scale(1);
+  }
+  .editBtn:hover {
+    box-shadow: 0px 5px 10px #00000056;
+  }
+  
+  .editBtn svg {
+    height: 17px;
+    fill: white;
+    z-index: 3;
+    transition: all 0.2s;
+    transform-origin: bottom;
+  }
+  .editBtn:hover svg {
+    transform: rotate(-15deg) translateX(5px);
+  }
+  .editBtn::after {
+    content: "";
+    width: 25px;
+    height: 1.5px;
+    position: absolute;
+    bottom: 19px;
+    left: -5px;
+    background-color: white;
+    border-radius: 2px;
+    z-index: 2;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-out;
+  }
+  .editBtn:hover::after {
+    transform: scaleX(1);
+    left: 0px;
+    transform-origin: right;
+  }
+  
+  .bin-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #ff5f5f;
+    cursor: pointer;
+    border: 3px solid rgb(255, 201, 201);
+    transition-duration: 0.3s;
+  }
+  .bin-bottom {
+    width: 15px;
+  }
+  .bin-top {
+    width: 17px;
+    transform-origin: right;
+    transition-duration: 0.3s;
+  }
+  .bin-button:hover .bin-top {
+    transform: rotate(45deg);
+  }
+  .bin-button:hover {
+    background-color: #ff0000;
+  }
+  .bin-button:active {
+    transform: scale(0.9);
+  }
+  
+  .group-btn{
+    display: flex;
+    margin: 20px 0 0;
+    align-items: center;
+    gap: 10px;
+  }
+
+ /* form codigos */
+ .container-discountcode{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .container-discount{
+  display: flex;
+  margin:30px 30px 50px;
+  padding: 30px;
+  border-radius: 30px;
+  justify-content: space-around;
+  background-color: #fff;
+ }
+
+.container-discountcodes-list{
+  display: flex;
+  align-items: self-start;
+  flex-direction: column;
+}
+ 
+.discount-code{
+  border-radius: 20px;
+  height: auto;
+  display: flex;
+  margin: 10px 0;
+  background-color: #e8e8e8;
+} 
+
+.discount-code p{
+  width: 400px;
+  padding: 18px 15px 2px;
+}
+
+.discount-code button{
+  margin: 5px;
+  border-radius: 20px;
+  width: 50px;
+  height: 50px; 
+  border:none;
+  background-color: #ff5f5f;
+}
+
+.discount-code button:hover{
+  background-color: #ff0000;
+}
+
+/* admin cursos */
+.container-cards{
+  display: flex;
+  background-color: #fff;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 30px;
+  justify-content: space-around;
+}
+
+.container-confirm-transfer{
+  width: 40%; 
+}
+
+.container-confirm-transfer h2{
+  text-align: center;
+}
+
+.container-eliminar-curso{
+  width: 40%;
+}
+
+.container-eliminar-curso h2{
+  text-align: center;
+}
+
+#delete-course select{
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#confirmTransferForm select{
+  padding: 5px;
+  border-radius: 10px;
+}

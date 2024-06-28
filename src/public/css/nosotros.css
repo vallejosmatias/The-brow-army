@@ -1,0 +1,204 @@
+.container-liz {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 40px 100px;
+    margin: 20px auto;
+  }
+  
+  .container-liz img {
+    width: 570px;
+    margin-left: 50px;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container-text {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 80px;
+  }
+  
+  .container-text p {
+    line-height: 20px;
+  }
+  
+  .container-text h1 {
+    font-size: 25px;
+    margin: 0;
+  }
+  
+  .container-text h2 {
+    font-size: 25px;
+    margin: 2px 0;
+    color: #dcbdaf;
+    font-weight: 500;
+  }
+  
+  .container-text p {
+    font-size: 13px;
+    margin: 20px 0;
+  }
+  
+  .container-text span {
+    font-size: 14px;
+    margin: 10px 0 10px;
+  }
+  
+  .estructura {
+    display: flex;
+    width: 100%;
+    height: 288px;
+  }
+  
+  .cont-text {
+    background-color: #dcbdaf;
+    padding: 52px 80px;
+  }
+  
+  .cont-text h3{
+    font-size: 28px;
+    color: #fff;
+    width: 20px;
+  }
+  
+  .cont-text p{
+    font-size: 13px;
+    color:#fff
+  }
+  
+  .agenda {
+    display: flex;
+    width: 100%;
+    background-color: #b8b7b742;
+    justify-content: center;
+    margin: 80px 0;
+  }
+  
+  .text {
+    width: 500px;
+    padding: 70px;
+  }
+  
+  .text h3 {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .text p {
+    font-size: 12px;
+    margin: 20px 0;
+  }
+  
+  .agenda img {
+    width: 450px;
+    height: 450px;
+    padding: 30px;
+    border-radius: 40px;
+    margin-left: 50px;
+  }
+  
+  .agenda .btn-contacto {
+    background-color: #dcbdaf;
+    padding: 10px 40px;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    text-decoration: none;
+  }
+  
+  .agenda .btn-contacto:hover{
+    background-color: #fff;
+    color: #dcbdaf;
+    border:  1px solid #dcbdaf;
+  }
+  
+  .contacto{
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly  ;
+    margin: 30px auto 80px;
+    border-radius: 30px;
+    background-color: #dcbdaf;
+  }
+  
+  .mapa{
+    padding: 70px 10px;
+  }
+  
+  .mapa iframe{
+    border-radius: 30px;
+    box-shadow: 3px 3px 4px;
+  }
+  
+  form{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 10px;
+    justify-content: center;
+  }
+  
+  form input,textarea{
+    margin: 10px 0;
+    border-radius: 7px;
+    border: none;
+    resize: none ;
+  }
+  
+  form input::placeholder, textarea::placeholder{
+    padding:10px;
+    text-transform: capitalize;
+  }
+  
+  form input:focus, textarea:focus{
+    padding-left: 3px;
+  }
+  
+  form button{
+    border-radius: 10px;
+    background-color: #616161c1;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+  }
+  
+  form button:hover{
+    background-color: #ffffffcb;
+    color: #000;
+  }
+  
+  /* icon wpp */
+.btn-wpp {
+    width: 55px;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 55px;
+    line-height: 55px;
+    bottom: 40px;
+    right: 20px;
+    background-color: #0df053;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+  }
+  
+  .btn-wpp:hover {
+    text-decoration: none;
+    color: #0df053;
+    background-color: #fff;
+  }
+  

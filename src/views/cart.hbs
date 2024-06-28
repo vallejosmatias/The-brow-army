@@ -1,0 +1,148 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="/css/cart.css" />
+  </head>
+  <body>
+    <main>
+      <div class="cont-divisas">
+        <select name="divisas" id="divisas">
+        <option value="USD">USD</option>
+        <option value="ARS">ARS</option>
+        </select>
+      </div>
+      <div class="container-cards">
+        <div class="card">
+        <h1>{{title}}</h1>
+        <div class="cart-list">
+          {{#if cart.items.length}}
+            {{#each cart.items}}
+              <div class="cart-item">
+                <img src="{{this.course.imgUrl}}" alt="" />
+                <h2>{{this.course.title}}</h2>
+                <div class="cont-btn">
+                  <button
+                    class="deleteButton remove-from-cart-btn"
+                    data-course-id="{{this.course._id}}"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 50 59"
+                      class="bin"
+                    >
+                      <path
+                        fill="#B5BAC1"
+                        d="M0 7.5C0 5.01472 2.01472 3 4.5 3H45.5C47.9853 3 50 5.01472 50 7.5V7.5C50 8.32843 49.3284 9 48.5 9H1.5C0.671571 9 0 8.32843 0 7.5V7.5Z"
+                      ></path>
+                      <path
+                        fill="#B5BAC1"
+                        d="M17 3C17 1.34315 18.3431 0 20 0H29.3125C30.9694 0 32.3125 1.34315 32.3125 3V3H17V3Z"
+                      ></path>
+                      <path
+                        fill="#B5BAC1"
+                        d="M2.18565 18.0974C2.08466 15.821 3.903 13.9202 6.18172 13.9202H43.8189C46.0976 13.9202 47.916 15.821 47.815 18.0975L46.1699 55.1775C46.0751 57.3155 44.314 59.0002 42.1739 59.0002H7.8268C5.68661 59.0002 3.92559 57.3155 3.83073 55.1775L2.18565 18.0974ZM18.0003 49.5402C16.6196 49.5402 15.5003 48.4209 15.5003 47.0402V24.9602C15.5003 23.5795 16.6196 22.4602 18.0003 22.4602C19.381 22.4602 20.5003 23.5795 20.5003 24.9602V47.0402C20.5003 48.4209 19.381 49.5402 18.0003 49.5402ZM29.5003 47.0402C29.5003 48.4209 30.6196 49.5402 32.0003 49.5402C33.381 49.5402 34.5003 48.4209 34.5003 47.0402V24.9602C34.5003 23.5795 33.381 22.4602 32.0003 22.4602C30.6196 22.4602 29.5003 23.5795 29.5003 24.9602V47.0402Z"
+                        clip-rule="evenodd"
+                        fill-rule="evenodd"
+                      ></path>
+                      <path
+                        fill="#B5BAC1"
+                        d="M2 13H48L47.6742 21.28H2.32031L2 13Z"
+                      ></path>
+                    </svg>
+                    <span class="tooltip">Eliminar</span>
+                  </button>
+                  <p>${{this.course.price}}</p>
+                </div>
+              </div>
+            {{/each}}
+          {{else}}
+            <p class="cart-vacio">El carrito está vacío.</p>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="card2">
+        <div class="input-container">
+          <form id="discountForm" action="/api/discount" method="POST">
+            <input
+              id="discountCodeInput"
+              name="code"
+              required=""
+              placeholder="Codigo Promocional"
+              type="text"
+            />
+            <button
+              id="applyDiscountButton"
+              class="invite-btn"
+              type="submit"
+            >Aplicar</button>
+          </form>
+        </div>
+        <div class="detalles">
+          <div class="detalles-subtotal">
+            <p>Subtotal</p>
+            <p id="subtotal">${{subtotal}}</p>
+          </div>
+          <div class="detalles-subtotal">
+            <p>Descuento</p>
+            <p id="discount">- ${{discount}}</p>
+          </div>
+          <div class="total">
+            <p>Total</p>
+            <p id="total">${{total}}</p>
+          </div>
+        </div>
+        <div class="container-pagar" id="container-pagar">
+          <label>
+            <input
+              type="radio"
+              name="paymentMethod"
+              value="transfer"
+              id="transferRadio"
+            />
+            Transferencia Bancaria (10%off)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="paymentMethod"
+              value="mercadoPago"
+              id="methodPayment"
+            />
+            Mercado pago (ARS)
+          </label>
+          <div id="wallet_container"></div>
+        </div>
+          <div id="paypal-button-container">
+          </div>
+          <a href="/courses" class="Btn">Seguir comprando</a>
+      </div>
+      </div>
+      
+      <!-- Modal -->
+      <div id="transferModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Datos de Transferencia</h2>
+          <p>Banco: ABC</p>
+          <p>Cuenta: 123456789</p>
+          <p>CBU: 1234567890123456789012</p>
+          <p>Total con descuento: <span id="transferTotal"></span></p>
+          <div class="container-tranfer">
+          <p>una vez realizada la tranferencia enviar el comprobante a whatssapp para habilitar el curso</p>
+          <a class="btn-tranfer-wpp" target="_blank" href="https://wa.me/1553382624?text=Hola! realice la transferencia:%0ANombre:%0Amail (registrado en la pag):">Enviar a whatssapp</a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AZLOBpliXEw2U_Ou8EncTBciGVLdPa7itB1CmGnE6fuUdiuU-3Iw3cQLI3oXiJoY39othYUxQZ7dDYjh&currency=USD"></script>
+
+ <script src="/js/cart.js"></script>
+  </body>
+</html>

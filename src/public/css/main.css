@@ -1,0 +1,286 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+header {
+  background: #000;
+}
+
+.container-session{
+  margin: 0 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+nav ul li {
+  list-style: none;
+  font-weight: 500;
+  margin: 0 5px;
+}
+
+nav ul li a:hover{
+  text-shadow: #000 5px 2px 10px;
+  transform: scale(1.05);
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 17px;
+}
+
+nav ul li a img {
+  width: 150px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+
+
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #ae8625, #f7ef8a, #d2ac47);
+}
+
+.container-datos {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.edit-block img {
+  width: 30px;
+  margin-bottom: 10px;
+}
+
+.edit-block p {
+  margin: 5px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+footer h3 {
+  margin: 20px 0 20px 160px;
+  font-size: 22px;
+}
+
+.Btn-ok{
+  color: #fff;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 17px;
+}
+
+.Btn-ok:hover{
+  text-shadow: #000 5px 2px 10px;
+  transform: scale(1.05);
+}
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: var(--af-white);
+}
+/* text */
+.text-log{
+  position: absolute;
+  left: 35%;
+  width: 0%;
+  opacity: 0;
+  color: var(--af-white);
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+
+/* hover effect on button width */
+.Btn-ok:hover {
+  width: 125px;
+  border-radius: 5px;
+  transition-duration: .3s;
+}
+
+.Btn-ok:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn-ok:hover .text-log {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn-ok:active {
+  transform: translate(2px ,2px);
+}
+
+  body{
+    background-color: #f0f0f0;
+    max-width: 1530px;
+    margin: 0 auto;
+  }
+
+/* loaders */
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Añadir un fondo semitransparente si lo deseas */
+  z-index: 9999; /* Asegurarse de que esté por encima de otros elementos */
+}
+
+.loader {
+  width: 80px;
+  height: 50px;
+  position: relative;
+}
+
+.loader-text {
+  position: absolute;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  color: #C8B6FF;
+  animation: text_713 3.5s ease both infinite;
+  font-size: .8rem;
+  letter-spacing: 1px;
+}
+
+.load {
+  background-color: #9A79FF;
+  border-radius: 50px;
+  display: block;
+  height: 16px;
+  width: 16px;
+  bottom: 0;
+  position: absolute;
+  transform: translateX(64px);
+  animation: loading_713 3.5s ease both infinite;
+}
+
+.load::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #D1C2FF;
+  border-radius: inherit;
+  animation: loading2_713 3.5s ease both infinite;
+}
+
+@keyframes text_713 {
+  0% {
+    letter-spacing: 1px;
+    transform: translateX(0px);
+  }
+
+  40% {
+    letter-spacing: 2px;
+    transform: translateX(26px);
+  }
+
+  80% {
+    letter-spacing: 1px;
+    transform: translateX(32px);
+  }
+
+  90% {
+    letter-spacing: 2px;
+    transform: translateX(0px);
+  }
+
+  100% {
+    letter-spacing: 1px;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes loading_713 {
+  0% {
+    width: 16px;
+    transform: translateX(0px);
+  }
+
+  40% {
+    width: 100%;
+    transform: translateX(0px);
+  }
+
+  80% {
+    width: 16px;
+    transform: translateX(64px);
+  }
+
+  90% {
+    width: 100%;
+    transform: translateX(0px);
+  }
+
+  100% {
+    width: 16px;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes loading2_713 {
+  0% {
+    transform: translateX(0px);
+    width: 16px;
+  }
+
+  40% {
+    transform: translateX(0%);
+    width: 80%;
+  }
+
+  80% {
+    width: 100%;
+    transform: translateX(0px);
+  }
+
+  90% {
+    width: 80%;
+    transform: translateX(15px);
+  }
+
+  100% {
+    transform: translateX(0px);
+    width: 16px;
+  }
+}
+  

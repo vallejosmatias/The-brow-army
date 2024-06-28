@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/forgot.css">
+    <title>{{title}}</title>
+</head>
+ <body class="body-verify">
+    <div class="cont-verify">
+      <h1>Solicitud de Restablecimiento de Contraseña</h1>
+      <p>Hola {{name}}</p>
+      <p>Se ha enviado un correo electrónico de restablecimiento a {{email}}</p>
+      <p>¿No lo has recibido?</p>
+      <div class="cont-btn-verify">
+        <a href="/api/users/resend-password-reset">Reenviar correo de restablecimiento</a>
+        <a href="/login">Volver a iniciar sesión</a>
+      </div>
+    </div>
+  </body>
+</html>

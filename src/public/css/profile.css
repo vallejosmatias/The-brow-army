@@ -1,0 +1,265 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#deleteProfileButton {
+  background-color: #e00b23;
+}
+
+#deleteProfileButton:hover {
+  background-color: #7e0210;
+}
+
+.course-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.course-card img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.course-info {
+  flex-grow: 1;
+}
+
+.course-info h3 {
+  margin: 0 0 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style: none;
+}
+
+.example-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.example-2 .icon-content {
+  margin: 0 10px;
+  position: relative;
+}
+
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 15px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: 6px;
+}
+
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 20%;
+  color: #4d4d4d;
+  background-color: #ffff;
+  transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 50%);
+}
+
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+}
+
+.example-2 .icon-content a:hover {
+  color: white;
+}
+
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+
+.example-2 .icon-content a[data-social="spotify"] .filled,
+.example-2 .icon-content a[data-social="spotify"] ~ .tooltip {
+  background-color: #0056b3;
+}
+
+.example-2 .icon-content a[data-social="pinterest"] .filled,
+.example-2 .icon-content a[data-social="pinterest"] ~ .tooltip {
+  background-color: #089511;
+}
+
+.example-2 .icon-content a[data-social="dribbble"] .filled,
+.example-2 .icon-content a[data-social="dribbble"] ~ .tooltip {
+  background-color: #bd081c;
+}
+
+.container-profile {
+  display: flex;
+  margin: 50px 0;
+}
+
+.aside {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.fixed {
+  position: fixed;
+  top: 200px;
+}
+
+.content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+.container-form_group_edit {
+  display: flex;
+  width: 800px;
+  justify-content: space-around;
+}
+
+.container-form_group .form-group input {
+  width: 350px;
+}
+
+.btn-submit {
+  width: 250px;
+  height: 50px;
+}
+
+.container-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+}
+
+#deleteProfileButton {
+  margin-top: 20px;
+  width: 250px;
+  height: 50px;
+  margin-bottom: 25px;
+}
+
+.card {
+  margin: 10px 50px 30px;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.card h1{
+  margin: 20px 0;
+}
+
+#courses-section {
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+}
+
+.course-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.course-card{
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.course-card img{
+  width: 100px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
