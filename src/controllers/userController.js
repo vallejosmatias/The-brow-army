@@ -6,7 +6,6 @@ export const getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).populate('courses');
     const courses = await Course.find({ _id: { $in: user.courses } });
-    console.log('Cursos comprados:', courses); // Verificación de datos en la consola
     res.render('profile', { title: 'Mi perfil', user, courses, showNavbarFooter: true });
   } catch (error) {
     console.error('Error al obtener los datos del perfil del usuario:', error);

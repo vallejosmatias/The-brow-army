@@ -2,22 +2,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 header {
   background: #000;
+  height: auto;
+  
+}
+
+.container-nav{
+  margin: 0 60px 0 0;
 }
 
 .container-session{
-  margin: 0 20px;
+  margin: 0 20px 0 50px;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  padding: 5px 5px 0;
 }
 
 nav ul {
@@ -29,7 +37,7 @@ nav ul {
 nav ul li {
   list-style: none;
   font-weight: 500;
-  margin: 0 5px;
+  margin: 0 10px;
 }
 
 nav ul li a:hover{
@@ -40,23 +48,19 @@ nav ul li a:hover{
 nav ul li a {
   color: #fff;
   text-decoration: none;
-  margin: 10px;
   font-size: 17px;
 }
 
-nav ul li a img {
-  width: 150px;
-  margin-top: 10px;
+.img-nav img {
+  width: 120px;
+  margin-left: 10px;
   color: #fff;
 }
-
-
-
 
 footer {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(45deg, #ae8625, #f7ef8a, #d2ac47);
+  background: #d1d1d1;
 }
 
 .container-datos {
@@ -284,3 +288,6 @@ footer h3 {
   }
 }
   
+.Btn-cart svg:hover{
+  transform: scale(1.3);
+}

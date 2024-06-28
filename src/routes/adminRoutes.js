@@ -84,6 +84,11 @@ router.post('/confirm-transfer-payment', async (req, res) => {
       return res.status(404).send('Usuario o curso no encontrado');
     }
 
+       // Verificar si el curso ya está en la lista de cursos del usuario
+       if (user.courses.includes(courseId)) {
+        return res.status(400).send('El usuario ya tiene este curso');
+      }
+
     user.courses.push(course);
     await user.save();
 

@@ -59,8 +59,13 @@
   }
   
   .cont-text {
-    background-color: #dcbdaf;
-    padding: 52px 80px;
+    background-color: #b3b3b3;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: center;
+    padding: 80px;
+    text-align: start;
   }
   
   .cont-text h3{
@@ -106,7 +111,7 @@
   }
   
   .agenda .btn-contacto {
-    background-color: #dcbdaf;
+    background-color:#949494;
     padding: 10px 40px;
     border-radius: 10px;
     color: #fff;
@@ -115,9 +120,9 @@
   }
   
   .agenda .btn-contacto:hover{
-    background-color: #fff;
-    color: #dcbdaf;
-    border:  1px solid #dcbdaf;
+    background-color: #b3b3b3;
+    color: #fff;
+
   }
   
   .contacto{
@@ -126,7 +131,7 @@
     justify-content: space-evenly  ;
     margin: 30px auto 80px;
     border-radius: 30px;
-    background-color: #dcbdaf;
+    background-color: #b3b3b3;
   }
   
   .mapa{
