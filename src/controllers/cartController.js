@@ -23,12 +23,13 @@ export const renderCart = async (req, res) => {
 
     let subtotal = 0;
     if (cart.items.length > 0) {
+      // Filtrar solo los items que tienen un curso válido
+      cart.items = cart.items.filter(item => item.course);
+
       subtotal = cart.items.reduce((acc, item) => acc + item.course.price, 0);
     }
 
     let discount = cart.discount || 0;
-
-
     let total = subtotal - discount;
 
     res.render('cart', {
@@ -43,7 +44,6 @@ export const renderCart = async (req, res) => {
     res.status(500).send('Error al cargar el carrito');
   }
 };
-
 
 // Obtener todos los carritos
 export const getAllCarts = async (req, res) => {
