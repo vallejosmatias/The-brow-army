@@ -125,3 +125,15 @@ background-color: #212121;
     justify-content: center;
     margin: 30px 0;
   }
+
+  /* ver contraseño u ocultar */
+  .password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}

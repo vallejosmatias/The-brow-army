@@ -2,6 +2,7 @@ import { Router } from "express";
 import Course from "../models/cursos.model.js";
 import { createDiscountCode, deleteDiscountCode, getDiscountCodes } from '../controllers/discountCodeController.js';
 import User from "../models/user.model.js";
+import Product from "../models/product.model.js";
 
 const router = Router();
 
@@ -48,16 +49,18 @@ router.get("/courses/delete/:id", async (req, res) => {
   }
 });
 
-// Ruta para obtener la página de administración con cursos y códigos de descuento
+// Ruta para obtener la página de administración con cursos, productos y códigos de descuento
 router.get('/courses', async (req, res) => {
   try {
     const courses = await Course.find();
+    const products = await Product.find();
     const users = await User.find(); // Asegúrate de que estás buscando los usuarios
     const discountCodes = await getDiscountCodes();
     res.render('admin', {
       title: 'Administrar Cursos y Descuentos',
       courses,
-      users, // Asegúrate de que estás pasando los usuarios a la vista
+      users,
+      products, // Asegúrate de que estás pasando los usuarios a la vista
       discountCodes,
       showNavbarFooter: true
     });
@@ -72,7 +75,7 @@ router.post('/discount-codes', createDiscountCode);
 router.delete('/discount-codes/:id', deleteDiscountCode);
 
 
-// agrregar curso a un usuario
+// agregar curso a un usuario
 router.post('/confirm-transfer-payment', async (req, res) => {
   const { userId, courseId } = req.body;
 
@@ -136,6 +139,58 @@ router.post('/delete-course', async (req, res) => {
     console.error('Error al eliminar el curso del usuario:', error);
     res.status(500).send('Error al eliminar el curso del usuario');
   }
+});
+
+// productos
+// Procesar la creación de un nuevo producto
+router.post("/products", async (req, res) => {
+  try {
+    const { productName, productDescription, productPrice, productStock, productImgUrl, productCategory } = req.body;
+    const newProduct = await Product.create({
+      productName,
+      productDescription,
+      productPrice,
+      productImgUrl,
+      productStock,
+      productCategory,
+    });
+    res.redirect("/admin/courses"); // Redirige a la lista de productos después de crear uno nuevo
+  } catch (error) {
+    console.error("Error al crear el producto:", error);
+    res.redirect("/admin/courses"); // Maneja el error redirigiendo de nuevo al formulario
+  }
+});
+
+// Procesar la actualización de un producto
+router.post("/products/edit/:id", async (req, res) => {
+  const productId = req.params.id;
+  try {
+    const { productName, productDescription, productPrice, productStock, productImgUrl, productCategory } = req.body;
+    await Product.findByIdAndUpdate(productId, {
+      productName,
+      productDescription,
+      productPrice,
+      productStock,
+      productImgUrl,
+      productCategory
+    });
+    res.redirect("/admin/courses");
+  } catch (error) {
+    console.error("Error al actualizar el producto:", error);
+    res.redirect("/admin/courses");
+  }
+});
+
+// Eliminar un producto
+router.get("/products/delete/:id", async (req, res) => {
+  const productId = req.params.id;
+  try {
+    await Product.findByIdAndDelete(productId);
+    res.redirect("/admin/courses");
+    } catch (error) {
+    console.error("Error al eliminar el producto:", error);
+    res.redirect("/admin/courses");
+    }
 });
 
 export default router;

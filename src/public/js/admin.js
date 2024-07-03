@@ -245,3 +245,46 @@ document
       });
     }
   });
+
+
+  // modal
+  document.addEventListener("DOMContentLoaded", () => {
+    const editProductButtons = document.querySelectorAll(".edit-product-btn");
+    const productModal = document.getElementById("editProductModal");
+    const closeProductModalBtn = document.getElementById("closeProductModalBtn");
+    const editProductForm = document.getElementById("editProductForm");
+  
+    editProductButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const productId = button.getAttribute("data-id");
+        const productName = button.getAttribute("data-name");
+        const productDescription = button.getAttribute("data-description");
+        const productStock = button.getAttribute("data-stock");
+        const productPrice = button.getAttribute("data-price");
+        const productImgUrl = button.getAttribute("data-imgurl");
+        const productCategory = button.getAttribute("data-category");
+  
+        document.getElementById("edit-product-id").value = productId;
+        document.getElementById("edit-product-name").value = productName;
+        document.getElementById("edit-product-description").value = productDescription;
+        document.getElementById("edit-product-price").value = productPrice;
+        document.getElementById("edit-product-imgUrl").value = productImgUrl;
+        document.getElementById("edit-product-category").value = productCategory;
+        document.getElementById("edit-stock").value = productStock;
+  
+        productModal.style.display = "block";
+        editProductForm.action = `/admin/products/edit/${productId}`;
+      });
+    });
+  
+    closeProductModalBtn.addEventListener("click", () => {
+      productModal.style.display = "none";
+    });
+  
+    window.addEventListener("click", (e) => {
+      if (e.target === productModal) {
+        productModal.style.display = "none";
+      }
+    });
+  });
+  

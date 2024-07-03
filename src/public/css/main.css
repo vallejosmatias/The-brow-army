@@ -8,7 +8,36 @@
 header {
   background: #000;
   height: auto;
-  
+}
+
+.sign-in{
+  border-radius: 20px;
+  position: relative;
+}
+
+.sign-in:hover svg{
+  transform: scale(1.3);
+}
+
+.sign-in .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.879);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: -40;
+  left: -80 ;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sign-in:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 
 .container-nav{
@@ -26,6 +55,7 @@ nav {
   font-weight: 200;
   font-style: normal;
   padding: 5px 5px 0;
+  z-index: 1000;
 }
 
 nav ul {
@@ -61,6 +91,13 @@ footer {
   display: flex;
   flex-direction: column;
   background: #d1d1d1;
+  justify-content: space-between;
+}
+
+footer .cube{
+  text-align: center;
+  margin: 0;
+  font-size: 10px;
 }
 
 .container-datos {
@@ -76,13 +113,13 @@ footer {
 
 .edit-block p {
   margin: 5px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
 }
 
 footer h3 {
   margin: 20px 0 20px 160px;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .Btn-ok{
@@ -95,57 +132,6 @@ footer h3 {
 .Btn-ok:hover{
   text-shadow: #000 5px 2px 10px;
   transform: scale(1.05);
-}
-/* plus sign */
-.sign {
-  width: 100%;
-  transition-duration: .3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sign svg {
-  width: 17px;
-}
-
-.sign svg path {
-  fill: var(--af-white);
-}
-/* text */
-.text-log{
-  position: absolute;
-  left: 35%;
-  width: 0%;
-  opacity: 0;
-  color: var(--af-white);
-  font-size: 1.2em;
-  font-weight: 600;
-  transition-duration: .3s;
-}
-
-/* hover effect on button width */
-.Btn-ok:hover {
-  width: 125px;
-  border-radius: 5px;
-  transition-duration: .3s;
-}
-
-.Btn-ok:hover .sign {
-  width: 30%;
-  transition-duration: .3s;
-  padding-left: 20px;
-}
-/* hover effect button's text */
-.Btn-ok:hover .text-log {
-  opacity: 1;
-  width: 70%;
-  transition-duration: .3s;
-  padding-right: 10px;
-}
-/* button click effect*/
-.Btn-ok:active {
-  transform: translate(2px ,2px);
 }
 
   body{
@@ -290,4 +276,26 @@ footer h3 {
   
 .Btn-cart svg:hover{
   transform: scale(1.3);
+}
+
+/* scroll */
+/* Ancho de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px; /* Puedes ajustar este valor */
+}
+
+/* Fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo del track */
+}
+
+/* Estilo del "thumb" (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color del thumb */
+  border-radius: 5px; /* Esquinas redondeadas */
+}
+
+/* Estilo del "thumb" al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color del thumb al pasar el mouse */
 }

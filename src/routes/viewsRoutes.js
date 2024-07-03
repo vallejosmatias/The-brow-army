@@ -2,6 +2,7 @@ import { Router } from "express";
 import Cart from "../models/carts.model.js";
 import Course from "../models/cursos.model.js";
 import forgotRoutes from './forgotRoutes.js'; // Importa las rutas de restablecimiento
+import Product from "../models/product.model.js";
 
 
 const router = Router();
@@ -75,5 +76,26 @@ router.get('/reset-password/:token', (req, res) => {
 
 // Integrar forgotRoutes
 router.use(forgotRoutes);
+
+// products
+router.get('/products-all', async (req, res) => {
+  try {
+      const products = await Product.find();
+      
+      // Agrupar productos por categoría
+      const categories = {};
+      products.forEach(product => {
+          if (!categories[product.productCategory]) {
+              categories[product.productCategory] = [];
+          }
+          categories[product.productCategory].push(product);
+      });
+
+      res.render('products', { categories , title: 'Productos', showNavbarFooter:true});
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Error al obtener los productos.');
+  }
+});
 
 export default router;

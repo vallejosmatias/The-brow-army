@@ -81,3 +81,14 @@ loginForm.addEventListener("submit", function (event) {
     loader.style.display = "none"; // Ocultar el loader en caso de error
   });
 });
+
+// login contraseña
+document.getElementById('togglePassword').addEventListener('click', function (e) {
+  // Obtener el campo de entrada de la contraseña y el icono de toggle
+  const password = document.getElementById('password');
+  const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+  password.setAttribute('type', type);
+  
+  // Alternar el icono
+  this.textContent = type === 'password' ? '👁️' : '🙈';
+});

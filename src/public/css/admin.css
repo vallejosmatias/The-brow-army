@@ -58,6 +58,17 @@
     border-radius: 10px;
     float: right;
   }
+
+   /* Botón de cerrar */
+   #closeProductModalBtn {
+    background-color: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    float: right;
+  }
   
   .edit-modal{
     display: flex;
@@ -359,3 +370,130 @@
   padding: 5px;
   border-radius: 10px;
 }
+
+/* Estilos para el modal de edición de productos */
+#editProductModal {
+  display: none; /* Por defecto oculto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  overflow: auto;
+}
+
+.edit-modal2{
+  display: flex;
+  flex-direction: column;
+  background-color: #000000ae;
+  width: 80%;
+  padding: 40px;
+  margin: 5% auto;
+  border-radius: 30px;
+}
+
+.edit-modal-bodyright2 button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.edit-modal-bodyright2 button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#editProductForm{
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.edit-modal-bodyleft2{
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-modal-bodyright2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-modal-bodyright2 input,label{
+  margin-bottom: 10px ;
+}
+
+.edit-modal-head2{
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+}
+/* crear products */
+.container-newproduct{
+  display: flex;
+    width: 800px;
+    justify-content: center;
+    background-color: #fff;
+    margin: 20px auto;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+/* listado de products */
+.container-product-list{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.container-product-list ul{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.container-product-list ul li{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #e1e1e1;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.container-product-list ul li img{
+  width: 150px;
+  border-radius: 20px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.container-product-list .group-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.container-product-list h2{
+  text-align: center;
+}
+
+.container-product-list strong{
+  margin-bottom: 10px;
+}
+
