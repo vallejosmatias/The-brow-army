@@ -495,5 +495,172 @@
 
 .container-product-list strong{
   margin-bottom: 10px;
+  text-transform: capitalize;
 }
 
+.currency-rate-section{
+  background-color: #fff;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.container-new-service{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 30px;
+  background-color: #Fff;
+  border-radius: 30px;
+}
+
+.container-new-service form{
+  display: flex;
+}
+
+.container-groups .group-input{
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.container-service-list{
+  margin: 30px;
+  padding: 30px;
+  border-radius: 30px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.container-service-list ul li{
+  list-style: none;
+}
+
+/* Estilos generales para el modal de edición */
+#editServiceModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: #fff;
+}
+
+#editServiceForm{
+  display: flex;
+  flex-direction: row;
+}
+
+.edit-modal3 {
+  background-color: #0c0c0c8e;
+  border-radius: 8px;
+  margin: 7% auto;
+  width: 80%;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.edit-modal-head3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.edit-modal-head3 h2 {
+  margin: 0;
+}
+
+#closeServiceModalBtn {
+  background-color: #ff4b5c;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  float: right;
+}
+
+.edit-modal-bodyleft3, .edit-modal-bodyright3 {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.edit-modal-bodyleft3 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-modal-bodyright3 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.edit-modal-bodyleft3 label, .edit-modal-bodyright3 label {
+  margin-top: 10px;
+}
+
+.edit-modal-bodyleft3 input, .edit-modal-bodyright3 input, .edit-modal-bodyleft3 textarea, .edit-modal-bodyright3 textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.edit-modal-bodyright3 button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-modal-bodyright3 button:hover {
+  background-color: #45a049;
+}
+
+.cont-texts-edit3{
+  background-color: #e1e1e1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.cont-texts-edit3 img{
+  border-radius: 15px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.container-service-list ul{
+  display: flex;
+  gap: 30px;
+}
+
+.cont-texts-edit3 strong,p{
+  text-align: center;
+  margin: 8px 0 3px 0;
+}
+
+.cont-texts-edit3 .group-btn{
+  margin: 0 auto;
+}

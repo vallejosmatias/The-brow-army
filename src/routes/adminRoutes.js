@@ -3,6 +3,8 @@ import Course from "../models/cursos.model.js";
 import { createDiscountCode, deleteDiscountCode, getDiscountCodes } from '../controllers/discountCodeController.js';
 import User from "../models/user.model.js";
 import Product from "../models/product.model.js";
+import { getExchangeRate, updateExchangeRate } from '../controllers/cotizacionController.js';
+import Servicio from '../models/servicios.model.js'
 
 const router = Router();
 
@@ -49,11 +51,12 @@ router.get("/courses/delete/:id", async (req, res) => {
   }
 });
 
-// Ruta para obtener la página de administración con cursos, productos y códigos de descuento
+// Ruta para obtener la página de administración con cursos, productos, servicios y códigos de descuento
 router.get('/courses', async (req, res) => {
   try {
     const courses = await Course.find();
     const products = await Product.find();
+    const services= await Servicio.find();
     const users = await User.find(); // Asegúrate de que estás buscando los usuarios
     const discountCodes = await getDiscountCodes();
     res.render('admin', {
@@ -62,6 +65,7 @@ router.get('/courses', async (req, res) => {
       users,
       products, // Asegúrate de que estás pasando los usuarios a la vista
       discountCodes,
+      services,
       showNavbarFooter: true
     });
   } catch (error) {
@@ -192,5 +196,11 @@ router.get("/products/delete/:id", async (req, res) => {
     res.redirect("/admin/courses");
     }
 });
+
+// Obtener la cotización actual
+router.get('/exchange-rate', getExchangeRate);
+
+// Actualizar la cotización
+router.post('/exchange-rate', updateExchangeRate);
 
 export default router;

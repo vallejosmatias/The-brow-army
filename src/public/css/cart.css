@@ -329,13 +329,13 @@ main{
 .container-pagar{
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
+  padding: 10px;
   font-size: 15px;
   margin-bottom: 0;
 }
 
 #transferRadio{
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 /* Modal CSS */

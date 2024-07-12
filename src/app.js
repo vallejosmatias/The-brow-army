@@ -18,6 +18,7 @@ import profileRoutes from "./routes/profileRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import discountCodeRoutes from "./routes/discountCodeRoutes.js";
 import paypalRoutes from './routes/paypalRoutes.js';
+import serviciosRoutes from './routes/serviciosRoutes.js'
 
 dotenv.config();
 const app = express();
@@ -113,6 +114,7 @@ app.use("/api", protectedRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api", cartRoutes);
 app.use("/api", orderRoutes);
+app.use("/", serviciosRoutes);
 app.use("/", viewsRoutes);
 app.use("/", profileRoutes);
 app.use("/admin", adminRoutes);

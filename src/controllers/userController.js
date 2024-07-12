@@ -4,12 +4,20 @@ import Course from '../models/cursos.model.js';
 // Obtener los datos del perfil del usuario
 export const getUserProfile = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).populate('courses');
-    const courses = await Course.find({ _id: { $in: user.courses } });
-    res.render('profile', { title: 'Mi perfil', user, courses, showNavbarFooter: true });
+    const user = await User.findById(req.user._id).populate('courses').exec();
+
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    res.render('profile', {
+      user,
+      courses: user.courses,
+      showNavbarFooter: true
+    });
   } catch (error) {
-    console.error('Error al obtener los datos del perfil del usuario:', error);
-    res.status(500).send('Error al obtener los datos del perfil');
+    console.error('Error al obtener el perfil del usuario:', error);
+    res.status(500).json({ message: 'Error al obtener el perfil del usuario' });
   }
 };
 

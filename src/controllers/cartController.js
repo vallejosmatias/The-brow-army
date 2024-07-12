@@ -1,6 +1,7 @@
 import Cart from '../models/carts.model.js';
 import Course from '../models/cursos.model.js';
 import User from '../models/user.model.js';
+import mongoose from 'mongoose';
 
 // Obtener y renderizar el carrito del usuario
 export const renderCart = async (req, res) => {
@@ -9,7 +10,7 @@ export const renderCart = async (req, res) => {
   try {
     let cart = await Cart.findOne({ user: userId })
       .populate('items.course')
-      .populate('discountCode'); // Poblar el campo discountCode
+      .populate('discountCode');
 
     if (!cart) {
       return res.render('cart', {
@@ -21,16 +22,10 @@ export const renderCart = async (req, res) => {
       });
     }
 
-    let subtotal = 0;
-    if (cart.items.length > 0) {
-      // Filtrar solo los items que tienen un curso válido
-      cart.items = cart.items.filter(item => item.course);
-
-      subtotal = cart.items.reduce((acc, item) => acc + item.course.price, 0);
-    }
-
-    let discount = cart.discount || 0;
-    let total = subtotal - discount;
+    cart.items = cart.items.filter(item => item.course); // Filtrar items válidos
+    const subtotal = cart.items.reduce((acc, item) => acc + item.course.price, 0);
+    const discount = cart.discount || 0;
+    const total = subtotal - discount;
 
     res.render('cart', {
       title: 'Carrito de Compras',
@@ -58,6 +53,10 @@ export const getAllCarts = async (req, res) => {
 // Obtener un carrito por su ID
 export const getCartById = async (req, res) => {
   const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'ID de carrito no válido' });
+  }
+
   try {
     const cart = await Cart.findById(id);
     if (!cart) {
@@ -70,23 +69,24 @@ export const getCartById = async (req, res) => {
 };
 
 export const addCourseToCart = async (req, res) => {
-  const userId = req.user._id; // Asumiendo que tienes autenticación implementada y `req.user` contiene el usuario actual
+  const userId = req.user._id;
   const { courseId } = req.params;
 
+  if (!mongoose.Types.ObjectId.isValid(courseId)) {
+    return res.status(400).json({ message: 'ID de curso no válido' });
+  }
+
   try {
-    // Encontrar el carrito del usuario o crear uno nuevo si no existe
     let cart = await Cart.findOne({ user: userId });
     if (!cart) {
       cart = new Cart({ user: userId, items: [] });
     }
 
-    // Verificar si el curso ya está en el carrito
     const courseExists = cart.items.some(item => item.course.toString() === courseId);
     if (courseExists) {
       return res.status(400).json({ message: 'El curso ya está en el carrito' });
     }
 
-    // Agregar el curso al carrito
     const course = await Course.findById(courseId);
     if (!course) {
       return res.status(404).json({ message: 'Curso no encontrado' });
@@ -105,6 +105,11 @@ export const addCourseToCart = async (req, res) => {
 export const updateCart = async (req, res) => {
   const { id } = req.params;
   const { user, items } = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'ID de carrito no válido' });
+  }
+
   try {
     const updatedCart = await Cart.findByIdAndUpdate(id, { user, items }, { new: true });
     if (!updatedCart) {
@@ -116,24 +121,32 @@ export const updateCart = async (req, res) => {
   }
 };
 
-// Eliminar un carrito existente
-export const deleteCart = async (req, res) => {
-  const { id } = req.params;
+// Eliminar el carrito después de un pago exitoso
+export const deleteCartAfterPayment = async (req, res) => {
+  const userId = req.user._id;
+
   try {
-    const deletedCart = await Cart.findByIdAndDelete(id);
-    if (!deletedCart) {
-      return res.status(404).json({ message: 'Carrito no encontrado' });
+    const cart = await Cart.findOneAndDelete({ user: userId });
+
+    if (cart) {
+      res.status(200).json({ message: 'Carrito eliminado después del pago exitoso' });
+    } else {
+      res.status(404).json({ message: 'No se encontró carrito para eliminar' });
     }
-    res.json({ message: 'Carrito eliminado exitosamente' });
   } catch (error) {
-    res.status(500).json({ message: 'Error al eliminar el carrito', error });
+    res.status(500).json({ message: 'Error al eliminar el carrito después del pago', error });
   }
 };
 
 // Eliminar un curso del carrito
 export const removeFromCart = async (req, res) => {
+  const { courseId } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(courseId)) {
+    return res.status(400).json({ message: 'ID de curso no válido' });
+  }
+
   try {
-    const { courseId } = req.params;
     const cart = await Cart.findOne({ user: req.user._id });
 
     if (cart) {
@@ -148,25 +161,46 @@ export const removeFromCart = async (req, res) => {
   }
 };
 
-// añadir cursos al perfil
+// Controlador para añadir cursos al perfil del usuario
 export const addCoursesToUserProfile = async (req, res) => {
   const userId = req.user._id;
   const { courseIds } = req.body;
 
   try {
+    if (!Array.isArray(courseIds) || courseIds.length === 0) {
+      return res.status(400).json({ message: 'No se proporcionaron IDs de cursos válidos' });
+    }
+
     const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    // Agregar los cursos comprados al perfil del usuario
-    user.courses = [...new Set([...user.courses, ...courseIds])];
+    const validCourseIds = courseIds
+      .filter(courseId => courseId && mongoose.Types.ObjectId.isValid(courseId))
+      .map(courseId => new mongoose.Types.ObjectId(courseId));
+
+    if (validCourseIds.length === 0) {
+      return res.status(400).json({ message: 'IDs de cursos no válidos' });
+    }
+
+    const existingCourses = await Course.find({ _id: { $in: validCourseIds } });
+
+    if (existingCourses.length !== validCourseIds.length) {
+      return res.status(400).json({ message: 'Algunos cursos no existen' });
+    }
+
+    validCourseIds.forEach(courseId => {
+      if (!user.courses.includes(courseId)) {
+        user.courses.push(courseId);
+      }
+    });
+
     await user.save();
 
     res.status(200).json({ message: 'Cursos añadidos al perfil del usuario', user });
   } catch (error) {
-    console.error("Error al añadir cursos al perfil del usuario:", error);
     res.status(500).json({ message: 'Error al añadir cursos al perfil del usuario', error });
   }
 };

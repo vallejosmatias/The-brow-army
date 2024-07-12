@@ -19,7 +19,7 @@
         <div class="cart-list">
           {{#if cart.items.length}}
             {{#each cart.items}}
-              <div class="cart-item">
+              <div class="cart-item" data-course-id="{{this.course._id}}">
                 <img src="{{this.course.imgUrl}}" alt="" />
                 <h2>{{this.course.title}}</h2>
                 <div class="cont-btn">

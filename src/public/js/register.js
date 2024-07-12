@@ -34,8 +34,9 @@ registerForm.addEventListener("submit", function (event) {
     return;
   }
 
-  if (password === "") {
-    alert("Por favor ingresa una contraseña");
+  const passwordError = validatePassword(password);
+  if (passwordError) {
+    alert(passwordError);
     loader.style.display = "none"; // Ocultar el loader en caso de error
     return;
   }
@@ -60,3 +61,21 @@ document.getElementById('togglePassword').addEventListener('click', function (e)
   // Alternar el icono
   this.textContent = type === 'password' ? '👁️' : '🙈';
 });
+
+// Función para validar la contraseña
+function validatePassword(password) {
+  const minLength = 8;
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+
+  if (password.length < minLength) {
+    return "La contraseña debe tener al menos 8 caracteres.";
+  }
+  if (!hasUpperCase) {
+    return "La contraseña debe contener al menos una letra mayúscula.";
+  }
+  if (!hasNumber) {
+    return "La contraseña debe contener al menos un número.";
+  }
+  return null;
+}

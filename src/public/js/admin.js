@@ -288,3 +288,105 @@ document
     });
   });
   
+  document.addEventListener("DOMContentLoaded", () => {
+    const exchangeRateForm = document.getElementById("exchangeRateForm");
+    const exchangeRateInput = document.getElementById("exchangeRate");
+  
+    if (exchangeRateForm) {
+      // Cargar la cotización actual al cargar la página
+      async function loadExchangeRate() {
+        try {
+          const response = await fetch("/admin/exchange-rate");
+          const rate = await response.json();
+          exchangeRateInput.value = rate ? rate.rate : "";
+        } catch (error) {
+          console.error("Error al cargar la cotización:", error);
+        }
+      }
+  
+      loadExchangeRate();
+  
+      // Manejar la actualización de la cotización
+      exchangeRateForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+  
+        const rate = exchangeRateInput.value;
+  
+        try {
+          const response = await fetch("/admin/exchange-rate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ rate }),
+          });
+  
+          if (!response.ok) {
+            throw new Error("Error al actualizar la cotización.");
+          }
+  
+          Toastify({
+            text: "Cotización actualizada",
+            offset: {
+              x: 0,
+              y: 20,
+            },
+            duration: 2000,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+              background: "rgb(76, 175, 80)",
+            },
+          }).showToast();
+        } catch (error) {
+          console.error("Error al actualizar la cotización:", error);
+          Swal.fire({
+            title: "Error",
+            text: "Error al actualizar la cotización. Inténtalo de nuevo.",
+            icon: "error",
+            confirmButtonText: "Aceptar",
+          });
+        }
+      });
+    }
+  });
+
+// Modal de servicios
+document.addEventListener("DOMContentLoaded", () => {
+const editServiceButtons = document.querySelectorAll(".edit-service-btn");
+const serviceModal = document.getElementById("editServiceModal");
+const closeServiceModalBtn = document.getElementById("closeServiceModalBtn");
+const editServiceForm = document.getElementById("editServiceForm");
+
+editServiceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const serviceId = button.getAttribute("data-id");
+    const serviceName = button.getAttribute("data-name");
+    const serviceDescription = button.getAttribute("data-description");
+    const servicePrice = button.getAttribute("data-price");
+    const serviceDuration = button.getAttribute("data-duration");
+    const serviceImgUrl = button.getAttribute("data-imgurl");
+
+    document.getElementById("edit-service-id").value = serviceId;
+    document.getElementById("edit-service-name").value = serviceName;
+    document.getElementById("edit-service-description").value = serviceDescription;
+    document.getElementById("edit-service-price").value = servicePrice;
+    document.getElementById("edit-service-duration").value = serviceDuration;
+    document.getElementById("edit-service-imgUrl").value = serviceImgUrl;
+
+    serviceModal.style.display = "block";
+    editServiceForm.action = `/servicio-update/${serviceId}`;
+  });
+});
+
+closeServiceModalBtn.addEventListener("click", () => {
+  serviceModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === serviceModal) {
+    serviceModal.style.display = "none";
+  }
+});
+});

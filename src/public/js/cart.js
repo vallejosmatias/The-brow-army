@@ -21,15 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function isUserAuthenticated() {
-    return document.cookie.includes('token');
+    return document.cookie.includes("token");
   }
 
   function showAuthenticationRequiredAlert() {
     Swal.fire({
-      icon: 'warning',
-      title: 'No autenticado',
-      text: 'Por favor, inicia sesión para agregar cursos al carrito.',
-      footer: '<a href="/login">Ir a iniciar sesión</a>'
+      icon: "warning",
+      title: "No autenticado",
+      text: "Por favor, inicia sesión para agregar cursos al carrito.",
+      footer: '<a href="/login">Ir a iniciar sesión</a>',
     });
   }
 
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             text: "Curso agregado",
             offset: {
               x: 0, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-              y: 85 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+              y: 85, // vertical axis - can be a number or a string indicating unity. eg: '2em'
             },
             duration: 2000,
             gravity: "top", // `top` or `bottom`
@@ -59,12 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
               background: "linear-gradient(45deg, #ae8625, #f7ef8a, #d2ac47)",
             },
           }).showToast();
-       
         } else {
           Swal.fire({
             title: "Error",
             text: "Ya tiene ese curso en tu carrito",
-            icon: "error"
+            icon: "error",
           });
         }
       })
@@ -89,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             text: "Curso eliminado",
             offset: {
               x: 0, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-              y: 85 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+              y: 85, // vertical axis - can be a number or a string indicating unity. eg: '2em'
             },
             duration: 2000,
             gravity: "top", // `top` or `bottom`
@@ -97,16 +96,16 @@ document.addEventListener("DOMContentLoaded", function () {
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
               background: "rgb(121,9,9)",
-              background: "linear-gradient(90deg, rgba(121,9,9,1) 0%, rgba(255,0,0,1) 100%)",
+              background:
+                "linear-gradient(90deg, rgba(121,9,9,1) 0%, rgba(255,0,0,1) 100%)",
             },
           }).showToast();
-         
         } else {
           console.error("Error al eliminar el curso del carrito");
           Swal.fire({
             title: "Error",
             text: "Error al eliminar el curso del carrito",
-            icon: "error"
+            icon: "error",
           });
         }
       })
@@ -240,8 +239,8 @@ document.getElementById("methodPayment").addEventListener("click", async () => {
       },
       body: JSON.stringify({
         items: cartItems,
-        total: totalARS,
         discount: discountARS,
+        total: totalARS,
       }),
     });
 
@@ -258,6 +257,9 @@ document.getElementById("methodPayment").addEventListener("click", async () => {
       },
       body: JSON.stringify({ courseIds }),
     });
+
+    await emptyCart(); // Llamada para vaciar el carrito
+
   } catch (error) {
     console.error("Error al crear la preferencia de Mercado Pago:", error);
     alert("Error al crear la preferencia de Mercado Pago. Inténtalo de nuevo.");
@@ -273,7 +275,7 @@ const createCheckoutButton = (preferenceId) => {
     if (window.checkoutButton) {
       await window.checkoutButton.unmount();
     }
-  
+
     await bricksBuilder.create("wallet", "wallet_container", {
       initialization: {
         preferenceId: preferenceId,
@@ -287,24 +289,6 @@ const createCheckoutButton = (preferenceId) => {
 
 // paypal
 document.addEventListener("DOMContentLoaded", function () {
-  const walletContainer = document.getElementById("wallet_container");
-  const paypalButtonContainer = document.getElementById(
-    "paypal-button-container"
-  );
-
-  const paypalButton = document.getElementById("paypal-button-container");
-
-  paypalButton.addEventListener("click", async () => {
-    try {
-      walletContainer.style.display = "none";
-      paypalButtonContainer.style.display = "block";
-    } catch (error) {
-      console.error("Error al mostrar el botón de PayPal:", error);
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
   const paypalButtonContainer = document.getElementById(
     "paypal-button-container"
   );
@@ -313,7 +297,6 @@ document.addEventListener("DOMContentLoaded", function () {
     paypal
       .Buttons({
         createOrder: function (data, actions) {
-          // Lógica para crear la orden de PayPal
           const total = parseFloat(
             document.getElementById("total").textContent.replace("$", "")
           );
@@ -330,12 +313,12 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         },
         onApprove: async function (data, actions) {
-          // Lógica cuando se aprueba el pago de PayPal
           return actions.order.capture().then(async function (details) {
             alert("Pago completado con éxito");
             const courseIds = [...document.querySelectorAll(".cart-item")].map(
               (item) => item.getAttribute("data-course-id")
             );
+
             try {
               const response = await fetch("/api/add-courses-to-profile", {
                 method: "POST",
@@ -347,8 +330,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
               if (response.ok) {
                 alert("Cursos añadidos a tu perfil");
+
+                await emptyCart(); // Llamada para vaciar el carrito
+
                 window.location.href = "/profile"; // Redirige al perfil del usuario o a donde quieras
               } else {
+                const errorResponse = await response.json();
+                console.error("Error response:", errorResponse); // Depuración: Verificar el mensaje de error
                 throw new Error("Error al añadir cursos a tu perfil");
               }
             } catch (error) {
@@ -357,7 +345,6 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         },
         onError: function (err) {
-          // Manejo de errores de PayPal
           console.error("Error en el pago de PayPal:", err);
           alert("Hubo un problema con el pago. Por favor, inténtelo de nuevo.");
         },
@@ -369,48 +356,57 @@ document.addEventListener("DOMContentLoaded", function () {
 // cambio de divisas
 document.getElementById("divisas").addEventListener("change", function () {
   const selectedCurrency = this.value;
-  const exchangeRate = 1330; // Ejemplo de tasa de cambio (1 USD = 85 ARS)
 
-  // Recorrer todos los elementos del carrito y actualizar los precios
-  document.querySelectorAll(".cart-item").forEach((itemElement) => {
-    const priceElement = itemElement.querySelector(".cont-btn p");
-    let price = Number(priceElement.innerText.replace("$", ""));
+  // Realiza una solicitud al servidor para obtener la tasa de cambio
+  fetch("/admin/exchange-rate")
+    .then((response) => response.json())
+    .then((data) => {
+      const exchangeRate = data.rate; // Obtén la tasa de cambio del servidor
 
-    if (selectedCurrency === "ARS") {
-      // Convertir el precio a ARS si está en USD
-      price = price * exchangeRate;
-    } else if (selectedCurrency === "USD") {
-      // Convertir el precio a USD si está en ARS
-      price = price / exchangeRate;
-    }
+      // Recorrer todos los elementos del carrito y actualizar los precios
+      document.querySelectorAll(".cart-item").forEach((itemElement) => {
+        const priceElement = itemElement.querySelector(".cont-btn p");
+        let price = Number(priceElement.innerText.replace("$", ""));
 
-    priceElement.innerText = `$${price}`;
-  });
+        if (selectedCurrency === "ARS") {
+          // Convertir el precio a ARS si está en USD
+          price = price * exchangeRate;
+        } else if (selectedCurrency === "USD") {
+          // Convertir el precio a USD si está en ARS
+          price = price / exchangeRate;
+        }
 
-  // Actualizar subtotal, descuento y total
-  const subtotalElement = document.getElementById("subtotal");
-  const discountElement = document.getElementById("discount");
-  const totalElement = document.getElementById("total");
+        priceElement.innerText = `$${price.toFixed(2)}`;
+      });
 
-  let subtotal = Number(subtotalElement.innerText.replace("$", ""));
-  let discount = Number(
-    discountElement.innerText.replace("$", "").replace("-", "")
-  );
-  let total = Number(totalElement.innerText.replace("$", ""));
+      // Actualizar subtotal, descuento y total
+      const subtotalElement = document.getElementById("subtotal");
+      const discountElement = document.getElementById("discount");
+      const totalElement = document.getElementById("total");
 
-  if (selectedCurrency === "ARS") {
-    subtotal *= exchangeRate;
-    discount *= exchangeRate;
-    total *= exchangeRate;
-  } else if (selectedCurrency === "USD") {
-    subtotal /= exchangeRate;
-    discount /= exchangeRate;
-    total /= exchangeRate;
-  }
+      let subtotal = Number(subtotalElement.innerText.replace("$", ""));
+      let discount = Number(
+        discountElement.innerText.replace("$", "").replace("-", "")
+      );
+      let total = Number(totalElement.innerText.replace("$", ""));
 
-  subtotalElement.innerText = `$${subtotal}`;
-  discountElement.innerText = `- $${discount}`;
-  totalElement.innerText = `$${total}`;
+      if (selectedCurrency === "ARS") {
+        subtotal *= exchangeRate;
+        discount *= exchangeRate;
+        total *= exchangeRate;
+      } else if (selectedCurrency === "USD") {
+        subtotal /= exchangeRate;
+        discount /= exchangeRate;
+        total /= exchangeRate;
+      }
+
+      subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
+      discountElement.innerText = `- $${discount.toFixed(2)}`;
+      totalElement.innerText = `$${total.toFixed(2)}`;
+    })
+    .catch((error) => {
+      console.error("Error al obtener la tasa de cambio:", error);
+    });
 });
 
 // mostrar los contenedores
@@ -449,3 +445,22 @@ function hideLoader() {
   document.getElementById("loader").style.display = "none";
 }
 
+//vaciar carrito
+async function emptyCart() {
+  try {
+    const response = await fetch("/api/cart/deleteAfterPayment", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      console.log("Carrito vaciado con éxito");
+    } else {
+      console.error("Error al vaciar el carrito");
+    }
+  } catch (error) {
+    console.error("Error al vaciar el carrito:", error);
+  }
+}

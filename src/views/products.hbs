@@ -30,18 +30,20 @@
     <!-- Ancla para la categoría -->
     <div class="products-list">
         {{#each this}}
-        <div class="card" data-stock="{{product.stock}}">
-            <img src="{{productImgUrl}}" alt="{{productName}}" />
-            <h3>{{productName}}</h3>
-            <p>{{productDescription}}</p>
-            <p>Precio: ${{productPrice}}</p>
-            <p>Disponibles: {{productStock}}</p>
-            <button class="add-to-order-btn"
-                data-name="{{productName}}"
-                data-imgurl="{{productImgUrl}}"
-                data-price="{{productPrice}}"
-                data-stock="{{productStock}}">Agregar</button>
-        </div>
+       <div class="card" data-stock="{{product.stock}}" data-price="{{productPrice}}">
+  <img src="{{productImgUrl}}" alt="{{productName}}" />
+  <h3>{{productName}}</h3>
+  <p>{{productDescription}}</p>
+  <p class="product-price">Precio: ${{productPrice}} USD</p>
+  <p>Disponibles: {{productStock}}</p>
+  <button
+    class="add-to-order-btn"
+    data-name="{{productName}}"
+    data-imgurl="{{productImgUrl}}"
+    data-price="{{productPrice}}"
+    data-stock="{{productStock}}"
+  >Agregar</button>
+</div>
         {{/each}}
     </div>
     {{/each}}
@@ -74,6 +76,9 @@
         </button>
     </div>
     <ul class="order-list"></ul>
+     <div class="total-container">
+    <p>Total: <span id="order-total">$0.00 USD</span></p>
+  </div>
     <button id="place-order-btn" class="hide">Realizar Pedido</button>
 </aside>
     <script>

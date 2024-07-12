@@ -109,19 +109,21 @@
           </form>
         </div>
 
-        <div class="card" id="courses-section">
-          <!-- Listado de cursos comprados -->
-          <h2>Mis Cursos</h2>
-          {{#each courses}}
-            <div class="course-card">
-              <img src="{{this.imgUrl}}" alt="photo" />
-              <div class="course-info">
-                <h3>{{this.title}}</h3>
-                <a href="{{this.videoUrl}}" target="_blank" class="btn">Ver Video</a>
-              </div>
-            </div>
-          {{/each}}
-        </div>
+<div class="card" id="courses-section">
+  <h2>Mis Cursos</h2>
+  {{#each courses}}
+    <div class="course-card">
+      <img src="{{this.imgUrl}}" alt="photo" />
+      <div class="course-info">
+        <h3>{{this.title}}</h3>
+        <a href="{{this.videoUrl}}" target="_blank" class="btn">Ver Video</a>
+      </div>
+    </div>
+  {{/each}}
+</div>
+
+
+
       </div>
     </div>
 
