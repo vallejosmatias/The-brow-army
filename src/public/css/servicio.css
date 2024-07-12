@@ -1,0 +1,56 @@
+.container-service{
+    display: flex;
+    margin: 50px auto;
+    padding: 30px;
+    gap: 50px;
+    justify-content: center;
+    width: 80%;
+    background-color: #e1e1e1;
+    border-radius: 20px;
+    box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+}
+
+.container-service .img img{
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.datos h1{
+    text-transform: capitalize;
+    margin: 10px 0 30px;
+}
+
+.container-btn{
+    display: flex;
+    gap: 20px;
+    margin: 30px 0;
+    justify-content: start;
+}
+
+.container-btn .btn-wapp{
+    background-color: #2f2f2f;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.container-btn .btn-wapp:hover{
+    background-color: #2f2f2fa0;
+    color: #000;
+}
+
+.container-btn .btn-volver{
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.container-btn .btn-volver:hover{
+    background-color: #eeeeeeaf;
+}

@@ -1,18 +1,60 @@
-.cont-services{
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .cont-services {
+    list-style-type: none;
+    padding: 0;
     display: flex;
-    gap: 30px;
-    list-style: none;
-}
-
-.cont-services li{
-    width: 30%;
-    height:250px ;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 20px 0;
-    background-repeat: no-repeat;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .service-item {
+    position: relative;
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    height: 200px; /* Ajusta la altura según tus necesidades */
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
+    justify-content: flex-end;
+    color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .service-item h2 {
+    margin: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    text-align: center;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+  
+  .service-item a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+  }
+  
+  .service-item a:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+  

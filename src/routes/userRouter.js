@@ -93,9 +93,29 @@ router.get('/verify-email/:token', async (req, res) => {
     await user.save();
 
     // Envía el correo electrónico de bienvenida
-    const welcomeMessage = `Hola ${user.name}, bienvenida a nuestra página de cursos online. Estamos felices de tenerte con nosotros.`;
-    await sendEmail(user.email, "Bienvenida a Nuestra Plataforma", welcomeMessage);
+    const welcomeMessage = `
+¡Bienvenida, ${user.name}!
 
+Estamos encantados de darte la bienvenida a nuestra comunidad de aprendizaje online. Tu decisión de unirte a nosotros nos llena de alegría, y estamos aquí para asegurarnos de que tu experiencia sea enriquecedora y gratificante.
+
+En nuestra plataforma, encontrarás una amplia gama de cursos diseñados para ayudarte a alcanzar tus objetivos, ya sea mejorar tus habilidades profesionales, explorar nuevas pasiones o simplemente aprender algo nuevo y emocionante.
+
+¿Qué puedes esperar de nosotros?
+
+Cursos de Alta Calidad: Todos nuestros cursos están creados por expertos en sus respectivos campos, garantizando contenido relevante y actualizado.
+Flexibilidad Total: Aprende a tu propio ritmo, desde cualquier lugar y en cualquier momento. Nuestra plataforma está disponible 24/7 para adaptarse a tu horario.
+Soporte Continuo: Nuestro equipo de soporte está siempre disponible para ayudarte con cualquier duda o problema que puedas tener.
+
+
+Una vez más, ¡bienvenida a bordo! Estamos emocionados de ser parte de tu camino hacia el conocimiento y el crecimiento personal.
+
+Saludos cordiales,
+
+Liz Sanchez
+The Brow Army
+thebrowarmyacademy@gmail.com
+    `;
+    await sendEmail(user.email, "Bienvenida a Nuestra Plataforma", welcomeMessage);
     // Redireccionar o responder con éxito
     res.redirect("/login")
   } catch (error) {

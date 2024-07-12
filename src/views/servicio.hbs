@@ -1,18 +1,21 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/servicio.css" />
     <title></title>
-</head>
-<body>
-      <div class="container-service">
+  </head>
+  <body>
+    <div class="container-service">
+      <div class="img">
+        <img src="{{service.imgUrl}}" alt="img-{{service.title}}" />
+      </div>
       <div class="datos">
         <h1>{{service.nombre}}</h1>
         <p><strong>Descripción:</strong> {{service.descripcion}}</p>
         <p><strong>Precio:</strong> ${{service.precio}}</p>
         <div class="container-btn">
-        <a href="#">pedir a whatsapp</a>
+          <a class="btn-wapp" href="#">Pedir turno</a>
           <a class="btn-volver" href="/servicios">
             <svg
               height="16"
@@ -25,12 +28,8 @@
               ></path></svg>
             <span>Volver</span>
           </a>
-          
         </div>
       </div>
-      <div class="img">
-        <img src="{{service.imgUrl}}" alt="img-{{service.title}}" />
-      </div>
     </div>
-</body>
+  </body>
 </html>

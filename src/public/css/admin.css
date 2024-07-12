@@ -659,6 +659,7 @@
 .cont-texts-edit3 strong,p{
   text-align: center;
   margin: 8px 0 3px 0;
+  text-transform: capitalize;
 }
 
 .cont-texts-edit3 .group-btn{

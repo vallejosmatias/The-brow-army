@@ -224,3 +224,16 @@
   font-weight: bold;
   text-align: center;
 }
+
+#divisas{
+  background-color: #e8e8e8;
+  color: #000;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 4px;
+  border: none  ;
+}
+
+#divisas option{
+  font-size: 18px;
+}

@@ -7,13 +7,12 @@
   <title>Servicios</title>
 </head>
 <body>
-  <h1>Nuestros Servicios</h1>
+   <h1>Nuestros Servicios</h1>
   <ul class="cont-services">
     {{#each servicios}}
-      <li style="background-image: url('{{imgUrl}}');">
-        <h2>{{nombre}}</h2>
-        <p>Duración: {{duracion}}</p>
+      <li class="service-item" style="background-image: url('{{imgUrl}}');">
         <a href="/service/{{_id}}">+info</a>
+        <h2>{{nombre}}</h2>
       </li>
     {{/each}}
   </ul>
