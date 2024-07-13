@@ -15,7 +15,7 @@ background-color: #212121;
     background-color: #171717;
     border-radius: 25px;
     transition: .4s ease-in-out;
-    width: 500px;
+    width: auto;
     margin: auto;
   }
   

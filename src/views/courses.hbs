@@ -1,33 +1,20 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/cursos.css" />
-    <title></title>
-  </head>
-  <body>
-    <div class="container-head">
-      <h1>Cursos Disponibles</h1>
-    </div>
-    <div class="course-list">
-      {{#each courses}}
-        <div class="container-cards">
-          <div class="card">
-            <img src="{{imgUrl}}" alt="photo" />
-            <div class="card__content">
-              <p class="card__title">{{title}}</p>
-              <p class="card__description">{{description}}</p>
-            </div>
-          </div>
-          <button class="learn-more">
-            <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-            </span>
-            <a class="button-text" href="/course/{{_id}}">Ver Curso</a>
-          </button>
-        </div>
-      {{/each}}
-    </div>
-
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/cursos.css">
+  <title>Cursos</title>
+</head>
+<body>
+  <h1>Cursos Disponibles</h1>
+  <ul class="course-list">
+    {{#each courses}}
+      <li class="course-item" style="background-image: url('{{imgUrl}}');">
+        <a href="/course/{{_id}}">+info</a>
+        <h2>{{title}}</h2>
+      </li>
+    {{/each}}
+  </ul>
+</body>
 </html>
