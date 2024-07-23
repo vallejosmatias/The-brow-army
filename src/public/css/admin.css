@@ -450,6 +450,9 @@
     border-radius: 20px;
     padding: 30px;
 }
+.container-newproduct h2{
+  text-align: center;
+}
 
 /* listado de products */
 .container-product-list{
@@ -463,12 +466,14 @@
 
 .container-product-list ul{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 10px;
 }
 
 .container-product-list ul li{
   display: flex;
+  width: 190px;
   flex-direction: column;
   padding: 20px;
   background-color: #e1e1e1;
@@ -496,6 +501,10 @@
 .container-product-list strong{
   margin-bottom: 10px;
   text-transform: capitalize;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+
 }
 
 .currency-rate-section{
@@ -513,6 +522,9 @@
   background-color: #Fff;
   border-radius: 30px;
 }
+.container-new-service h2{
+  text-align: center;
+}
 
 .container-new-service form{
   display: flex;
@@ -526,7 +538,7 @@
 
 .container-service-list{
   margin: 30px;
-  padding: 30px;
+  padding: 20px;
   border-radius: 30px;
   background-color: #fff;
   display: flex;
@@ -535,8 +547,15 @@
   gap: 20px;
 }
 
+.container-service-list ul{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 .container-service-list ul li{
   list-style: none;
+  margin: 0;
 }
 
 /* Estilos generales para el modal de edición */

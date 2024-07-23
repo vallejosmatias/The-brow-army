@@ -2,7 +2,7 @@
 height: 100vh;
 display: flex;
 align-items: center;
-background-color: #212121;
+background-color: #fbe9d8;
 }
 .form {
     display: flex;
@@ -12,7 +12,7 @@ background-color: #212121;
     padding-left: 2em;
     padding-right: 2em;
     padding-bottom: 0.4em;
-    background-color: #171717;
+    background-color: #ef8d97;
     border-radius: 25px;
     transition: .4s ease-in-out;
     width: auto;
@@ -40,9 +40,9 @@ background-color: #212121;
     padding: 0.6em;
     border: none;
     outline: none;
-    color: white;
-    background-color: #171717;
-    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    color: #ef8d97;
+    background-color: #ffffff;
+   
   }
   
   .input-icon {
@@ -56,7 +56,7 @@ background-color: #212121;
     border: none;
     outline: none;
     width: 100%;
-    color: #d3d3d3;
+    color: #ef8d97;
   }
   
   .form .btn {
@@ -75,12 +75,12 @@ background-color: #212121;
     border: none;
     outline: none;
     transition: .4s ease-in-out;
-    background-color: #252525;
-    color: white;
+    background-color: #fbe9d8;
+    color: #000;
   }
   
   .button1:hover {
-    background-color: black;
+    background-color: #ed717ed2;
     color: white;
   }
   
@@ -92,14 +92,14 @@ background-color: #212121;
     border: none;
     outline: none;
     transition: .4s ease-in-out;
-    background-color: #252525;
-    color: white;
+    background-color: #fbe9d8;
+    color: #000;
     text-decoration: none;
   }
   
   .button2:hover {
-    background-color: black;
-    color: white;
+    background-color: #ed717ed2;
+    color: #000;
   }
   
   .button3 {
@@ -111,13 +111,13 @@ background-color: #212121;
     text-align: center;
     text-decoration: none;
     transition: .4s ease-in-out;
-    background-color: #252525;
-    color: white;
+    background-color: #fbe9d8;
+    color: #000;
   }
   
   .button3:hover {
-    background-color: red;
-    color: white;
+    background-color: #ed717ed2;
+    color: #000;
   }
   
   .btn-register{

@@ -6,7 +6,7 @@ form {
   padding-left: 2em;
   padding-right: 2em;
   padding-bottom: 0.4em;
-  background-color: #171717;
+  background-color: #ed717ed2;
   border-radius: 25px;
   transition: 0.4s ease-in-out;
   width: 500px;
@@ -19,7 +19,7 @@ form {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #212121;
+  background-color: #fbe9d8;
 }
 
 form:hover {
@@ -36,13 +36,13 @@ button {
     border: none;
     outline: none;
     transition: .4s ease-in-out;
-    background-color: #252525;
-    color: white;
+    background-color: #fbe9d8;
+    color: #000;
     width: 80%;
   }
   
   button:hover {
-    background-color: black;
+    background-color: #ed717ed2;
     color: white;
   }
 
@@ -50,7 +50,7 @@ button {
     border: none;
     outline: none;
     width: 100%;
-    color: #000000;
+    color: #ed717ed2;
     padding: 5px;
     border-radius: 10px;
   }

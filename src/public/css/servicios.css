@@ -1,53 +1,60 @@
-body {
-    font-family: Arial, sans-serif;
-  }
-  
-  h1 {
+@font-face {
+  font-family: 'magilio';
+  src: url('../assets/txt/magilio_demo-webfont.woff2') format('woff2'),
+       url('../assets/txt/magilio_demo-webfont.woff') format('woff');
+}
+
+h1 {
     text-align: center;
-    margin: 20px 0;
+    margin: 30px 0 0;
+    font-size: 50px;
+    font-family: magilio;
   }
   
   .cont-services {
     list-style-type: none;
-    padding: 0;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
   }
   
   .service-item {
     position: relative;
-    width: 300px; /* Ajusta el ancho según tus necesidades */
-    height: 200px; /* Ajusta la altura según tus necesidades */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 400px; /* Ajusta el ancho según tus necesidades */
+    height: 120px; /* Ajusta la altura según tus necesidades */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     color: white;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
+    padding: 0;
+    border-radius: 25px;
+    background-color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .service-item img{
+    width: 120px;
+    border-radius: 25px 0px  0 25px ;
+    height: 120px;
+    object-fit: cover;
   }
   
-  .service-item h2 {
-    margin: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
-    text-align: center;
-    box-sizing: border-box;
-    text-transform: capitalize;
-    border-radius: 10px;
+  .container-card-edit{
+    display: flex;
+    align-items: center;
   }
-  
+  .container-card-edit h2{
+    font-size: 20px;
+    padding: 30px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    color: #000;
+  }
   .service-item a {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
+    top: 75px;
+    right: 20px;
+    background-color: #f9bcc0ba;
     padding: 5px 10px;
     text-decoration: none;
     color: black;
@@ -55,6 +62,10 @@ body {
   }
   
   .service-item a:hover {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: #ef8d97bc;
   }
   
+  p{
+    text-align: center;
+    font-size: 13px;
+  }

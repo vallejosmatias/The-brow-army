@@ -4,7 +4,7 @@ main{
 
 .container-cards {
   display: flex;
-  background-color: #e8e8e8;
+  background-color: #fbe9d8;
   height: 100vh;
   justify-content: center;
   align-items: center;
@@ -44,14 +44,14 @@ main{
   width: 600px;
   height: auto;
   border-radius: 30px;
-  background: #e0e0e0;
+  background: #ef8d971d;
   box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
 }
 .card2 {
   width: 300px;
   height: auto;
   border-radius: 30px;
-  background: #e0e0e0;
+  background: #ef8d971d;
   box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
   display: flex;
   flex-direction: column;

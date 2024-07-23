@@ -10,11 +10,15 @@
    <h1>Nuestros Servicios</h1>
   <ul class="cont-services">
     {{#each servicios}}
-      <li class="service-item" style="background-image: url('{{imgUrl}}');">
-        <a href="/service/{{_id}}">+info</a>
+      <li class="service-item">
+        <img src="{{imgUrl}}" alt="">
+     <div class="container-card-edit">
+         <a href="/service/{{_id}}">+info</a>
         <h2>{{nombre}}</h2>
+     </div>
       </li>
     {{/each}}
   </ul>
+  <p>*Consultar precios de micropigmentación por whatsApp*</p>
 </body>
 </html>

@@ -2,24 +2,18 @@
     display: flex;
     height: calc(100vh - 76px);
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
-    background-image: url("https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/the-brow-army.appspot.com/o/WhatsApp%20Image%202024-07-22%20at%2017.47.36.jpeg?alt=media&token=e2f772a0-d55f-4ebe-abfa-a79c5be26f2f");
     background-size: cover;
+    background-position-y: -70px;
   }
 
 h1{
-    color:#000;
+    color:#ffffffb5;
     font-weight: 600;
-    font-size: 50px;
-    margin: 20px 50px;
-}
-
-h2{
-    color:#000000bb;
-    font-size: 16px;
-    margin: 20px 50px;
-    font-weight: 400;
+    font-size: 80px;
+    margin: 10px 0 100px;
 }
 
 footer{

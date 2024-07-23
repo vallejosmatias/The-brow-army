@@ -3,11 +3,12 @@
     margin: 50px auto;
     padding: 30px;
     gap: 50px;
+    align-items: center;
     justify-content: center;
     width: 80%;
-    background-color: #e1e1e1;
+    background-color: #f9bcc0;
     border-radius: 20px;
-    box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
+    box-shadow: 15px 15px 30px #f0e2d7, -15px -15px 30px #f6ddc6;
 }
 
 .container-service .img img{

@@ -14,10 +14,17 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
@@ -30,20 +37,20 @@
     {{#if showNavbarFooter}}
       <header>
         <nav>
-           <button class="menu-toggle" id="menu-toggle">
-      ☰
-    </button>
-           <a class="img-nav" href="/"><img
-                    src="/assets/LOGO-blanco.png"
-                    alt="logo"
-                  /></a>
+          <button class="menu-toggle" id="menu-toggle">
+            ☰
+          </button>
+          <a class="img-nav" href="/"><img
+              src="/assets/LOGO-blanco.png"
+              alt="logo"
+            /></a>
           <div class="container-nav">
             <ul>
               <li><a href="/">Inicio</a></li>
+              <li><a href="/nosotros">Nosotros</a></li>
+              <li><a href="/servicios">Servicios</a></li>
               <li><a href="/courses">Cursos</a></li>
               <li><a href="/products-all">Productos</a></li>
-              <li><a href="/servicios">Servicios</a></li>
-              <li><a href="/nosotros">Nosotros</a></li>
 
               {{#if user}}
                 <li><a href="/profile">Perfil</a></li>
@@ -101,49 +108,41 @@
         <div class="container-datos">
           <div class="edit-block">
             <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAfRJREFUSEvN1cvLTWEUx/HPS0kuZUBIihBC7gPlMqAkMaCM3OMfUEaMlBFmjEQMxEAyMDATSRISEZFLEWWgFAOEZ2mdOu92zpu9T2/Zders55z9+z7Pb631230G+eobZH3dABNwBb+wAR+abqQTYBxuYXqKvsCKppAqIMRvYBZeJ2AKnmNlE0gVELasxxssT4uuYxriJAF5X8euKuAHhmIy3qZQ1ONanuoBFvYC+IzRGIUvHQB3sbQXwCPMzc/jFLqfu47fVuNjL4DTxf9dpcA7cTaFokXHYxlu1xGP/1ZrsLv4fwrnSlG3ptgZ7Ci2HS227e8VEG0aO/6OifiExQjvv2E+ntaBdBq0i9iMwziYYidLV+3J9t2CO7keG7raNvF/tXAnwDw8zB0vKbAo7ogUnZPCl3AEJ7Ao12IYV1XnpFsWHcO+nOYYuHcJOZ5N0O7Sq7yZmhPfD9INMDwjI3r+JTai1bYL0rpNeIY1CYhhnFGFDBTXY8vDNzEzh25v+X5+gAK3T/y9ksZhb9e4bumMweX0NtYuZKu2YqSdFwWP3JpdIv6fASEwJEUPYRh+pl3RbZG8kbpfUzxSuF8o1nmjTSrzcaDUZHvpoJFdrIqCx7sjmuLPVQfQeiZOsQ7bMpvCxrieYG1bCjcG1BnkRif4vwC/Ab0RYxl9FmQXAAAAAElFTkSuQmCC"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAiJJREFUSEu1lc+LjWEUxz9fapr8qFmYmKSICTExjIUaLEZJYkFZMYzGP6BmxUrNytixErEQC8nCwk4jSRrSTETkR81EWSg1FsjxnDq37n3v++a+93bfuov7Ps9zPuf5nvM9r2jzozbHJxdgZiuA+4ABByV9bTaROoCZdQNPgHUR9D2wq1lIDSCCPwI2AJ8CsBp4B+xuBpIFuCwHgM/AYEg0CawF/CYO+VJGrizgD7AQWCVp1gNFPR7GrV5K6m8F8ANYCiyRNJ8DmJK0oxXADLDZf5JeBeAF4Fn72pCkb60AriX9R1KBT0q6EQBv0eXATklPywT3vdkanEr6XwVuSjoWgOvAiSTbRJJtrFWAe8Az/g30SPpuZtuBKeAXsEXSmzKQPKPdSXofAcYlnYtbXAFGo32PSnoW7z2hB1WOr2vhPEAfMB0ZD0iaMbNFgAfdFNnfBS4Al4Ft8c7NuCfrk6JZdBE4E24elDQXkEvRBNUqfYw/a8LxNZAiQCfgI8N7/gNwqKpttwIu3WHgLbA3AG7G3iykcFyb2bJ0+DGwHnDTnZZ0q6jAGcc/lzRQ16bZw2bWBdxzbWPtdoKNVcZI9f4YlD63NqYR3xggOmWBBwXOAx3AX8Bd7t3mMvrU/Ql4cJ/CNUOx4S+ama1M/jibajKcOmhxgVRecP92zFXWGwZUDpiZ32I/cNxnE+Ay+vMa2JeVrzSgjIv/W+SywfL2t/0G/wAOa8MZSMiv9QAAAABJRU5ErkJggg=="
             />
             <p class="footer-edit">Teléfono</p>
-            <p>5555555</p>
+            <p>+541123160671</p>
+            <p>01145515568</p>
           </div>
           <div class="edit-block">
-            <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAlxJREFUSEu11cmrj1EYB/DPNacMkTlEhDIryZRhIUNio4iSIRIbFuIPYIMSJSFFkmkhkY0pQ4kimYWMmZUkM+epc3Vd9zeEe3bv2znP93yH5zkVanlV1HJ95QB0wnRMQL98oUs4gt14XOySxQCaYicmFynwA3sxBx9q2lcIoDHOozc+YTPW414u0hVLMR8N8t4R+FIdpBDADszCI4zDjQIs+uJoukA7rMOycgD64Aq+Jp0HI/Rui62p2JBc4GzSfh5eYiRO4TO64GlVkJoYbMBibMSSXLwSpOrZYNcfb7ALMxLISqwuBXAH3bL+17LRM3Ew+bEiH16bdB+fvVmYGIxOTI7jdGb0C6MmBmFqGFcX35ORT9AebfCiisl3U3oeojNaJLavM5uWpRi8RXM0wfuc8w7oWCXz0RsP8nf8j73vEGcDrCiDixiUmqhH0vV2uuF2zM4SLUejxHBVbrxt2exeuI4LORhFAbbkQ2FwGN0KV9G6WgSjg8PkkCbiuSbJuCnJuKgUgzE4hsvp1gPy5vCgMqbhyxkswHPUwc2UpO4YhnOlAML4+9m8KVmaYuMmEhYj5RZ6ltNosWca9uAZovFeFUAI80O+CMUkHC4XIPadwKjcpWPxrdrhhlmOgSkUhwoNxWLTNMZDNFrELtISgy2mZ6x62Jd8CgmjF8LsiOgfq9R7MDSxOIn6iAE4N8c03oGQJEZ0GBuBqHGVAohDU9PY2J/TEo9MvBPD8xifmBNXMATlAMTh8OAAmuVKYX48RNFYRVe5AFEkujWS9TFr/9tY/heJSl3yvzH4K6CfFgx2GUKNzOIAAAAASUVORK5CYII="
-            />
+           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAqNJREFUSEu1ldmrz1EUxT/LnDJE5q4bEcqsJFOGBxkSL4ooGSK5LzyIP4AXlCgJKZJMDxJ5MWUoUSSzkDGzkmS8y9l16OL3+31vyn495+y191pr7yP+c+g/56cQwHZXYCYwCRiQC7oMHAX2SHpSqciyALZbAruAqRUSGNgHzJP0sdS9kgC2mwMXgL7AZ2ALsEHS/UhiuzuwDFgINMl3R0n6+idIOYCdwBzgMTBB0s1S1dnuDxxLBXQC1ktaXghgux9wFfiWeB4q6bLtjsC2lGxYTnAOWCDple3RwGngC9BN0rO6IH91YHsjsBTYJKkmJw9RA6RuRHcDJb21vRuYlUBWSVpTBHAX6BH8S7puO4SeDRxKeqzMj9cl3ieGNpIW2x4LnADOSIqOfkWpDkLUEK6hpFrbT4HOQAdJL+uIfC+555GkatttgDfAW0ltiwDeAa2BFpI+2A6fdwGqfno+z8bDpMMTSVW2WyRXvQfeSQqwih1cAoakIeol6Y7tHcDcTNEKoFnqcHUevO0JdIHtPsAN4KKkoUUAW8MhqeUaSZtstwOuAe3/EDk6C5Hf2A57rk00bk40LikCGAccB65IGpQ5Dw1+2rQWOAsskvTCdgPgFtATGCHpfBFACP8AqE4g0xJIuKds2A6HhdNuS+pdOGi54hnAXuA50E/S6zKTHOIHfWGKKZKO1Asgg5wExuQpHS/pe93HtpsCQcfgZIrDkkouxUrbNCb3OhC22x6LTVJsz1h2jYD9QWHMQhY77P1XVPwPbA9PXZwCGgOxAOdnm+4JSoBY0SHslXIi1efDmZ7WxgEg3BKfTPwTI/ManywpHFc2CgEyJeOT2AeBVjlTiD9V0sVKyeOsXgAZJKY1nPUp2/e3tfzPFBVVWHRe7w6KEpU7/wEt+foZEMvsVwAAAABJRU5ErkJggg=="/>
             <p class="footer-edit">Dirección</p>
-            <p>calle falsa 123</p>
+            <p>Av. Alvarez Thomas 362</p>
           </div>
           <div class="edit-block">
             <a
               href="https://www.instagram.com/thebrowarmy/"
               target="_blank"
-            ><img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAjNJREFUSEvF1UnITWEYB/DfhyLCRlamQiEJkSQskFJfMmS2sTEsFBmKLJTIELKyYCF9hoxRSuykJJIyJpKyYUVW5vfRe+t0Oqd7U7fvrds95x2e///5/5/nPR3aPDraHF+3AYzEVszEeGqJ/MEz3MNxvCkrUpXBBpxAL3zAA7yqkXIyJmIofmATThX3lgGm5IAvsAhvW/QosryBYZiKJ41zZYCrWIAxeN9C8LVJvr34krJdh0cpo+tYUgcQQYN9gBRHD8zDOPzCS9zNc7ezlMMzwCCMqAP4ii5sLEQPfS9iegk0jD2ddP+EwTiDUGA++tUB/MYR7Mgbgvn9zGgb7qBnZn4oV80sRDXFCCJL855/E2UPYuMB7MoHluVD8X+plMHy5NWFZOjCbHAsn0/yxXwQqwUIZjvzejxvR398KwGE1p9TOe9LvuzJayHvqiLxqgyiYbbkAwezXANT44U/xdEA2J96YHdeOIs1zQCO5S6OM1Ful7OuV0oAwTQYFyWK9xXNPChm0DA5SjCkCpOjw+emSjmM15hdMjkA+9R5EDoHi/UFtkOymTMqynQlPhbmo0znICStNDkuq/hVNVow60wV9h23cLPAvBHvMQYkkqPrAIL94lSaY1u8KopJTUj311OcSyRX1wFMSiyDRWwMg9+VZKl7jeDXEF5NyzEqJYrJxnUdBj/MksT8TzxPjdgbo7LZMd8XcQvH+macLLKo+6L9zwfnaNX13m2fzBalb76t7Rn8BcJ+cxlsKeBhAAAAAElFTkSuQmCC"
-              /></a>
+            ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAmJJREFUSEvFlU2IT2EUxn8PiojZTFYYhUISIklYIKU0MZphsLHxsVDko8hCiQwhKwsW0vjIZ5QSOymJpBg0kZQNK7LydbyP3v/0d+d/m39qmru79573PM95nnPOK/r5UT/nZ2AAImICsANYAEyDUiIBvAAeACcldRcV6VVBRGwGTgFDgA/AI+B1iZSzgBnAWOAHsFXSmerYfwAiYnZO2AWslPS2Ho8iwlXeAsYBcyQ9q5wrAlwHlgOTJb3vK3lEbEjyHQC+pGo3Ak9SRTcltZQBOGmXJIP0PBExCFgKTAV+Aa+A+/nbXUspqSkiDNAoaXwZwFegU9KWSkBEWN/LwLxCRTb2bNL9EzBa0rmIsALLJI0oA/gNHJO02wGZ+UPAjHYC94DBmXkH4K5ZKMnd5HgTWS3JMX+fogcOPCxpbz7Qmtm3SrpSkK0teXUJaJZkgw1wMcnXJsmSlgJ0SNqTD5jlLmCkpG8FgEbgc2rng5L25/hOoF1SD/FaFXhgtucDRwDL1SDJ/lQbXwE4JGlfjj8PrO8L4ERK5il2yW63q1nXawWAdjdEQSK/r+nLg+oKrKVNbspS2WRP+BLgKPAGWFQw2Z4MK/PAOrtNN1W16Zhs5vwabbpW0seqWLfpYkkNZQBuu+6SQWsGVgDfgTvA7QrzKoCnwChJk8oArOGq1JpT6lkVBU+mp/31HLiQtuq6MoCZiaVZOLBF0ruCLDVf0wQ7+Y3s1VxJztF7DnLnVNa1DX6cJfGvn8DLNIhDgYnZbH8fDngL+/82SaerWdS80f7zwjlea70PzJVZj+71xvR7BX8AWsb9GfXCJjsAAAAASUVORK5CYII="/></a>
             <p class="footer-edit">Instagram</p>
             <p>@thebrowarmy</p>
           </div>
-           <div class="edit-block">
-            <img
-              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAUlJREFUSEvd1T8ohWEUx/GPJIPBZJBSMmCwW2xGpbBSNmVSBhbJRCmTsilWfxaZbBYzA5OQMpgMBsmfe/S8um73ute93eWe5an3vM/5nt/vvM/zNqlzNNW5vsYCjGEN/TXadoUFnESdfIse0FVj8Wz7DXoLAZ8pO4DrKkGhPhT81M5XkAFeMI3Df0LGsYu2coCs7gYW8V4G1JxmF77nx3fzxRTMYButOMMEnkpAOnCAYbxiFjvlFAR0EMfoxiNC/nkBZCjZ2Il7jOaauURmdUkFmap27GMEb5jHVoLMYRMtOMVkLv+cchUDMgtXsJw276V1Kq2RW83rOh7/C5C5EipCTaiKiG6j6+i+MKoCRJEeHOXUfKSZ3JYYfNWASo9FAwPu0ndfqRV/vRfziZn9OslxXa+jr0bCRe5ULxW7rmusW3x7Y/0y62LRF2qEQhkl8rgIAAAAAElFTkSuQmCC"
-            />
+          <div class="edit-block">
+           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAXVJREFUSEvdlS9IZFEUxn8fIgaDySALghh0w/YtNuOCMFoVbIJJMLhlkU0KgmnBtuDW3bWIyWYxa9AkowgGk8Egsn7rGe6TmdF5vpnHlLnlhnPv+Z3vO/eP6PJQl/PTQwDbM8AGMFnStjNgVdJB5HmxyPY18KFk8mz7haTxZoBT9KOk805AtkN9KEBSrfh6BRngHliQ9LcdiO0KsAsMvgfI8m4Ba5L+5YFs96Xerdavy1OwCOwAA8ARMCvp9i2I7WHgDzAFPABLwM9cBUG2/QnYB0aBG6Ai6bgeYvszEDaOAFfAF0mntmtWt1SQBWwPAb+BaeARWJH0IzbbXga2gX7gEJiTdJdixQBpcRyCdeBbqv5XmufTHLHvITpTV1hBkx2hItSEqhhRbVQd1TeMjgBJzRiw96zmKfWk2qLxxS1q5x6UsqgdUMcWFYXkAS7TuS+aK29dVVL0rOEtiud6E5goSTh5vtVfXz3XJZO23N5DX2a3LPoPOrOrGWF3AyAAAAAASUVORK5CYII="/>
             <p class="footer-edit">Correo Electronico</p>
-            <p>thebrowarmy.acaemy@gmail.com</p>
+            <p>thebrowarmy.academy@gmail.com</p>
           </div>
         </div>
-          <p class="cube">by Cube Design & Solutions</p>
+        <p class="cube">by Cube Design & Solutions</p>
       </footer>
     {{/if}}
     <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const containerNav = document.querySelector('.container-nav');
-
-    menuToggle.addEventListener('click', function() {
-      containerNav.classList.toggle('open');
-    });
-  });
-</script>
+      document.addEventListener('DOMContentLoaded', function() { const
+      menuToggle = document.getElementById('menu-toggle'); const containerNav =
+      document.querySelector('.container-nav');
+      menuToggle.addEventListener('click', function() {
+      containerNav.classList.toggle('open'); }); });
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -153,8 +152,11 @@
       src="https://kit.fontawesome.com/6d47fb1300.js"
       crossorigin="anonymous"
     ></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
 
   </body>
 </html>

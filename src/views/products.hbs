@@ -6,81 +6,100 @@
     <title>Productos</title>
   </head>
   <body>
-   <div class="container">
-    <!-- Botones de filtro -->
-    <div class="filter-buttons">
+    <div class="container">
+      <!-- Botones de filtro -->
+      <div class="filter-buttons">
         <div class="cont-filtros">
-            <h4>Categorías:</h4>
-            <div class="container-filter">
-                {{#each categories}}
-                <button onclick="window.location.hash='{{@key}}'">{{@key}}</button>
-                {{/each}}
-            </div>
+          <h4>Categorías:</h4>
+          <div class="container-filter">
+            {{#each categories}}
+              <button
+                onclick="window.location.hash='{{@key}}'"
+              >{{@key}}</button>
+            {{/each}}
+          </div>
         </div>
         <div class="cont-divisas">
-            <select name="divisas" id="divisas">
-                <option value="USD">USD</option>
-                <option value="ARS">ARS</option>
-            </select>
+          <select name="divisas" id="divisas">
+            <option value="USD">USD</option>
+            <option value="ARS">ARS</option>
+          </select>
         </div>
+      </div>
+
+      {{#each categories}}
+        <h2 id="{{@key}}">{{@key}}</h2>
+        <!-- Ancla para la categoría -->
+        <div class="products-list">
+          {{#each this}}
+            <div
+              class="card"
+              data-stock="{{product.stock}}"
+              data-price="{{productPrice}}"
+            >
+              <img src="{{productImgUrl}}" alt="{{productName}}" />
+              <h3>{{productName}}</h3>
+              <p class="product-descrip">{{productDescription}}</p>
+              <p class="product-price">Precio: ${{productPrice}} USD</p>
+              <p class="product-stock">Disponibles: {{productStock}}</p>
+              <button
+                class="add-to-order-btn"
+                data-name="{{productName}}"
+                data-imgurl="{{productImgUrl}}"
+                data-price="{{productPrice}}"
+                data-stock="{{productStock}}"
+              >Agregar</button>
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
+
+      <p class="text-aclaracion">*Los pedidos de cursos y productos se generan
+        en carritos diferentes*</p>
     </div>
 
-    {{#each categories}}
-    <h2 id="{{@key}}">{{@key}}</h2>
-    <!-- Ancla para la categoría -->
-    <div class="products-list">
-        {{#each this}}
-       <div class="card" data-stock="{{product.stock}}" data-price="{{productPrice}}">
-  <img src="{{productImgUrl}}" alt="{{productName}}" />
-  <h3>{{productName}}</h3>
-  <p>{{productDescription}}</p>
-  <p class="product-price">Precio: ${{productPrice}} USD</p>
-  <p>Disponibles: {{productStock}}</p>
-  <button
-    class="add-to-order-btn"
-    data-name="{{productName}}"
-    data-imgurl="{{productImgUrl}}"
-    data-price="{{productPrice}}"
-    data-stock="{{productStock}}"
-  >Agregar</button>
-</div>
-        {{/each}}
-    </div>
-    {{/each}}
-
-    <p class="text-aclaracion">*Los pedidos de cursos y productos se generan en carritos diferentes*</p>
-</div>
-
-<button class="open-aside-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-        style="fill: rgba(245, 245, 245, 1);transform: ;msFilter:;">
+    <button class="open-aside-btn"><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        style="fill: rgba(245, 245, 245, 1);transform: ;msFilter:;"
+      >
         <path
-            d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z">
+          d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"
+        >
         </path>
         <path
-            d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z">
+          d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"
+        >
         </path>
-    </svg>
-</button>
+      </svg>
+    </button>
 
-<!-- Panel lateral (aside) -->
-<aside class="order-aside">
-    <div class="cont-head">
+    <!-- Panel lateral (aside) -->
+    <aside class="order-aside">
+      <div class="cont-head">
         <h3>Tu Pedido</h3>
-        <button class="close-aside-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24"
-                style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;">
-                <path
-                    d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
-                </path>
-            </svg>
+        <button class="close-aside-btn"><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"
+          >
+            <path
+              d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"
+            >
+            </path>
+          </svg>
         </button>
-    </div>
-    <ul class="order-list"></ul>
-     <div class="total-container">
-    <p>Total: <span id="order-total">$0.00 USD</span></p>
-  </div>
-    <button id="place-order-btn" class="hide">Realizar Pedido</button>
-</aside>
+      </div>
+      <ul class="order-list"></ul>
+      <div class="total-container">
+        <p>Total: <span id="order-total">$0.00 USD</span></p>
+      </div>
+      <button id="place-order-btn" class="hide">Realizar Pedido</button>
+    </aside>
     <script>
       document.addEventListener("DOMContentLoaded", () => { const buttons =
       document.querySelectorAll(".filter-buttons button");
