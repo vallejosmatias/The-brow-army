@@ -29,7 +29,7 @@ button {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #f4a4a9;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -37,15 +37,15 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #f4a4a9b5;
 }
 
 #deleteProfileButton {
-  background-color: #e00b23;
+  background-color: #575454;
 }
 
 #deleteProfileButton:hover {
-  background-color: #7e0210;
+  background-color: #9b9b9b;
 }
 
 .course-card {
@@ -74,13 +74,14 @@ button:hover {
 .btn {
   display: inline-block;
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #f4a4a9;
   color: #fff;
   text-decoration: none;
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #f4a4a9b5;
+  color: #fff;
 }
 
 ul {

@@ -7,14 +7,20 @@
   <title>Cursos</title>
 </head>
 <body>
-  <h1>Cursos Disponibles</h1>
+ <main class="main-courses">
+   <h1>Cursos Disponibles</h1>
   <ul class="course-list">
+   {{#if courses.length}}
     {{#each courses}}
       <li class="course-item" style="background-image: url('{{imgUrl}}');">
         <a href="/course/{{_id}}">+info</a>
         <h2>{{title}}</h2>
       </li>
     {{/each}}
+     {{else}}
+    <p>No hay cursos disponibles</p>
+   {{/if}}
   </ul>
+ </main>
 </body>
 </html>

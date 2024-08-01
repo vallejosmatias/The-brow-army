@@ -1,3 +1,7 @@
+.main-courses{
+  height: calc(100vh - 76px - 213px);
+}
+
 h1 {
   text-align: center;
   margin: 20px 0;

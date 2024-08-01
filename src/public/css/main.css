@@ -282,23 +282,23 @@ footer h3 {
 /* scroll */
 /* Ancho de la barra de desplazamiento */
 ::-webkit-scrollbar {
-  width: 10px; /* Puedes ajustar este valor */
+  width: 10px; 
 }
 
 /* Fondo de la barra de desplazamiento */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color de fondo del track */
+  background: #f1f1f1;
 }
 
 /* Estilo del "thumb" (la parte que se mueve) */
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Color del thumb */
-  border-radius: 5px; /* Esquinas redondeadas */
+  background: #888; 
+  border-radius: 5px; 
 }
 
 /* Estilo del "thumb" al pasar el mouse */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color del thumb al pasar el mouse */
+  background: #555; 
 }
 
 .menu-toggle {

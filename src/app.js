@@ -71,9 +71,9 @@ app.post("/create_preference", async (req, res) => {
     const preferenceData = {
       items,
       back_urls: {
-        success: "https://lagoddess.me/",
-        failure: "https://boxicons.com/?query=tras",
-        pending: "https://www.mercadopago.com.ar/developers/es/docs/checkout-pro/integrate-preferences#editor_2",
+        success: "http://localhost:3000/profile",
+        failure: "http://localhost:3000/api/my-cart",
+        pending: "http://localhost:3000/api/my-cart",
       },
       auto_return: "approved",
       additional_info: `Total: ${total}`,

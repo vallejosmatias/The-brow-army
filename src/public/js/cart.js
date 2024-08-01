@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // mp
-const mp = new MercadoPago("APP_USR-a5ff4e52-3875-4c1e-87be-d0c9e43571c5", {
+const mp = new MercadoPago("APP_USR-93721164-512c-4d77-a521-4fb47b5e4c1a", {
   locale: "es-AR",
 });
 
