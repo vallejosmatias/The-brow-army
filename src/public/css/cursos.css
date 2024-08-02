@@ -36,7 +36,7 @@ h1 {
 .course-item h2 {
   margin: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+  background-color: #f9bcc0b5; /* Fondo semitransparente para el texto */
   text-align: center;
   box-sizing: border-box;
   text-transform: capitalize;
@@ -55,7 +55,7 @@ h1 {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #f9bcc0;
   padding: 5px 10px;
   text-decoration: none;
   color: black;

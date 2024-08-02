@@ -5,7 +5,7 @@
 }
 
 .card {
-  width: 280px;
+  width: 250px;
   position: relative;
   border-radius: 30px;
   background: #ef8d971d;
@@ -50,7 +50,8 @@
 .products-list {
   display: flex;
   margin: 2px 0 30px;
-  padding: 10px;
+  padding: 5px;
+  flex-wrap: wrap;
 }
 
 .filter-buttons {
