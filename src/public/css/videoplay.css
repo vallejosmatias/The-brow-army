@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "magilio";
+    src: url("../assets/txt/magilio_demo-webfont.woff2") format("woff2"),
+      url("../assets/txt/magilio_demo-webfont.woff") format("woff");
+  }
+
+h1{
+    width: 100%;
+    height: auto;
+    background-color:#ef8d97;
+    padding: 15px 0;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-family: magilio;
+    color:#fff;
+    margin: 0;
+}
+
+video{
+    width: 100%;
+    height: calc(100vh - 58px - 66px);
+}
+
+.container-volver{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding: 10px 0;
+    background-color: #ef8d97;
+}
+
+.container-volver a{
+    background-color: #ffc9c9;
+    margin:0 10px;
+}
+
+.container-volver a:hover{
+    background-color: #eaa3aae1;
+    color: #ffc9c9;
+}

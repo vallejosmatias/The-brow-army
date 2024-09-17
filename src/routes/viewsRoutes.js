@@ -1,8 +1,9 @@
-import { Router } from "express";
+import { application, Router } from "express";
 import Cart from "../models/carts.model.js";
 import Course from "../models/cursos.model.js";
 import forgotRoutes from './forgotRoutes.js'; // Importa las rutas de restablecimiento
 import Product from "../models/product.model.js";
+import { protect } from "../middlewares/authMiddleware.js";
 
 
 const router = Router();
@@ -95,6 +96,31 @@ router.get('/products-all', async (req, res) => {
   } catch (error) {
       console.error(error);
       res.status(500).send('Error al obtener los productos.');
+  }
+});
+
+// Ruta para ver el video
+router.get('/ver-video/:id', protect, async (req, res) => {
+  const courseId = req.params.id;
+
+  try {
+    // Buscar el curso por su ID
+    const course = await Course.findById(courseId);
+
+    // Verificar si el curso existe
+    if (!course) {
+      return res.status(404).json({ message: 'Curso no encontrado' });
+    }
+
+    // Renderizar la vista de reproducción del video
+    res.render('videoplay', {
+      title:"Reproductor de cursos",
+      videoUrl: course.videoUrl,
+      title2: course.title,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error en el servidor' });
   }
 });
 

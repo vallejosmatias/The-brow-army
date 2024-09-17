@@ -258,7 +258,7 @@
     border-radius: 15px;
     background-color: #ff5f5f;
     cursor: pointer;
-    border: 3px solid rgb(255, 201, 201);
+    border: 3px solid #ffc9c9;
     transition-duration: 0.3s;
   }
   .bin-bottom {
