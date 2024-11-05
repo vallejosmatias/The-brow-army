@@ -56,7 +56,6 @@
 
 .filter-buttons {
   display: flex;
-  
   padding: 5px;
   margin: 20px 0;
   align-items: center;
@@ -273,4 +272,21 @@
 
 #divisas option{
   font-size: 18px;
+}
+
+@media (max-width: 1000px){
+ .filter-buttons h4{
+  font-size: 10px;
+ }
+ .filter-buttons button{
+  font-size: 10px;
+  padding: 2px 5px;
+ }
+}
+
+@media (max-width: 720px){
+.products-list{
+  flex-direction: column;
+  align-items: center;
+}
 }

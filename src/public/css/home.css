@@ -23,6 +23,7 @@ footer{
 @media (max-width: 1000px) {
   .home{
     text-align: center;
+    background-position: center center;
   }
   h1{
     font-size: 40px;
@@ -35,6 +36,8 @@ footer{
 @media (max-width: 720px) {
   .home{
     text-align: center;
+    background-position: center center;
+    min-width: 400px;
   }
   h1{
     font-size: 30px;

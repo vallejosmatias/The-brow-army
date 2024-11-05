@@ -171,6 +171,10 @@ textarea {
   resize: none;
 }
 
+.names input{
+  width: 100%;
+}
+
 form input::placeholder,
 textarea::placeholder {
   padding: 10px;
@@ -221,4 +225,67 @@ form button:hover {
   text-decoration: none;
   color: #0df053;
   background-color: #fff;
+}
+
+
+@media (max-width: 1000px) {
+  .container-liz{
+    padding: 20px;
+    margin: 50px auto;
+  }
+ .container-liz img{
+  width: 300px;
+  height: auto;
+ }
+ .container-text p{
+  font-size: 11px;
+ }
+}
+.cont-text h3{
+  font-size: 50px;
+}
+.cont-text p{
+  font-size: 20px;
+}
+.estructura img{
+  width: 250px;
+  height: auto;
+}
+.contacto{
+  width: 90%;
+  padding: 0 20px;
+}
+
+@media (max-width: 720px) {
+  .container-liz{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-liz img{
+    width: 470px;
+  }
+  .cont-text h3{
+    font-size: 35px;
+  }
+  .cont-text p{
+    font-size: 15px;
+  }
+  .estructura img{
+    width: 200px;
+    height: 200px;
+    margin: auto ;
+  }
+  .agenda{
+    flex-direction: column;
+    align-items: center;
+  }
+  .contacto {
+    flex-direction: column;
+    width: 70%;
+    padding: 10px;
+  }
+ .mapa{
+  padding: 10px;
+ }
 }
