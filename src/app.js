@@ -22,8 +22,9 @@ import serviciosRoutes from './routes/serviciosRoutes.js'
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 4000;
 const DB_URL = process.env.DB_URL || "mongodb://localhost:27017/The-Brow-Army";
+
 
 // Middleware para parsear JSON
 app.use(express.json());
@@ -121,11 +122,12 @@ app.use("/admin", adminRoutes);
 app.use("/api", discountCodeRoutes);
 app.use('/api/paypal', paypalRoutes);
 
-const server = app.listen(PORT, () => {
-  console.log("Server is running on port " + PORT);
+const server = app.listen(PORT,'0.0.0.0', () => {
+  console.log(`Servidor escuchando en http://0.0.0.0:${PORT}`);
 });
 
 server.on("error", (error) => console.log(`Error en servidor ${error}`));
+
 
 
 
