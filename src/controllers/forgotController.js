@@ -17,7 +17,7 @@ export const forgotPassword = asyncHandler(async (req, res) => {
     await user.save();
 
     // Enviar el correo electrónico con el enlace de restablecimiento al usuario encontrado
-    const resetUrl = `http://localhost:3000/reset-password/${token}`;
+    const resetUrl = `http://thebrowarmy.com/reset-password/${token}`;
     const message = `Has solicitado restablecer tu contraseña. Por favor, haz clic en el siguiente enlace para restablecer tu contraseña: ${resetUrl}`;
 
     await sendEmail(user.email, 'Solicitud de Restablecimiento de Contraseña', message);

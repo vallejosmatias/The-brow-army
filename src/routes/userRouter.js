@@ -59,7 +59,7 @@ router.post("/register", async (req, res) => {
     await user.save();
 
     // Envía el correo electrónico de verificación
-    const verificationUrl = `http://localhost:3000/api/users/verify-email/${user.emailVerificationToken}`;
+    const verificationUrl = `http://thebrowarmy.com/api/users/verify-email/${user.emailVerificationToken}`;
     const message = `Hola ${user.name}, por favor haz click en este enlace para verificar tu correo electrónico: ${verificationUrl}`;
 
     await sendEmail(user.email, "Verificación de Correo Electrónico", message);
