@@ -17,14 +17,14 @@ import viewsRoutes from "./routes/viewsRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import discountCodeRoutes from "./routes/discountCodeRoutes.js";
-import paypalRoutes from './routes/paypalRoutes.js';
-import serviciosRoutes from './routes/serviciosRoutes.js'
+import paypalRoutes from "./routes/paypalRoutes.js";
+import serviciosRoutes from "./routes/serviciosRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 const DB_URL = process.env.DB_URL || "mongodb://localhost:27017/The-Brow-Army";
-
 
 // Middleware para parsear JSON
 app.use(express.json());
@@ -65,7 +65,10 @@ app.post("/create_preference", async (req, res) => {
       currency_id: "ARS",
     }));
 
-    const subtotal = items.reduce((acc, item) => acc + (item.unit_price * item.quantity), 0);
+    const subtotal = items.reduce(
+      (acc, item) => acc + item.unit_price * item.quantity,
+      0
+    );
     const discount = req.body.discount || 0;
     const total = subtotal - discount;
 
@@ -120,14 +123,11 @@ app.use("/", viewsRoutes);
 app.use("/", profileRoutes);
 app.use("/admin", adminRoutes);
 app.use("/api", discountCodeRoutes);
-app.use('/api/paypal', paypalRoutes);
+app.use("/api/paypal", paypalRoutes);
+app.use("/", contactRoutes);
 
-const server = app.listen(PORT,'0.0.0.0', () => {
+const server = app.listen(PORT, "0.0.0.0", () => {
   console.log(`Servidor escuchando en http://0.0.0.0:${PORT}`);
 });
 
 server.on("error", (error) => console.log(`Error en servidor ${error}`));
-
-
-
-
