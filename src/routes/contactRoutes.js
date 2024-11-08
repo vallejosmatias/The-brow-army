@@ -22,8 +22,18 @@ router.post("/send-email", async (req, res) => {
   `;
 
   try {
-    await sendEmail("thebrowarmy.acaemy@gmail.com", subject, message); // Reemplaza con la dirección de destino
-    res.send("Mensaje enviado correctamente.");
+    await sendEmail("thebrowarmy.acaemy@gmail.com", subject, message);
+    res.send(`
+      <div style="text-align: center;">
+        <p>Mensaje enviado correctamente.</p>
+        <p>Redirigiendo a la página de "Nosotros" en 5 segundos...</p>
+      </div>
+      <script>
+        setTimeout(() => {
+          window.location.href = "/nosotros";
+        }, 5000);
+      </script>
+    `);
   } catch (error) {
     console.error("Error al enviar correo electrónico:", error);
     res.status(500).send("Error al enviar el mensaje.");
