@@ -187,12 +187,12 @@ router.get('/resend-password-reset', async (req, res) => {
     let resetUrl;
     // Comprueba si ya existe un token de restablecimiento válido
     if (user.passwordResetToken && user.passwordResetExpires > Date.now()) {
-      resetUrl = `http://localhost:3000/reset-password/${user.passwordResetToken}`;
+      resetUrl = `http://thebrowarmy.com/reset-password/${user.passwordResetToken}`;
     } else {
       // Genera y guarda un nuevo token de restablecimiento de contraseña
       const resetToken = user.generatePasswordResetToken();
       await user.save();
-      resetUrl = `http://localhost:3000/reset-password/${resetToken}`;
+      resetUrl = `http://thebrowarmy.com/reset-password/${resetToken}`;
     }
 
     const message = `Hola ${user.name}, por favor haz click en este enlace para restablecer tu contraseña: ${resetUrl}`;
