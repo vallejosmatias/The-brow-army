@@ -3,22 +3,22 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Configura el transportador con Mailtrap
+// Configura el transportador con SendGrid SMTP
 const transporter = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io", // Usa el host de Mailtrap
-  port: 2525, // Usa el puerto de Mailtrap
+  host: "smtp.sendgrid.net", // Host de SendGrid
+  port: 587, // Puerto seguro para envío
   auth: {
-    user: process.env.your_mailtrap_user, // Reemplaza con tu usuario de Mailtrap
-    pass: process.env.your_mailtrap_password, // Reemplaza con tu contraseña de Mailtrap
+    user: "apikey", // El usuario debe ser "apikey" cuando usas la API Key de SendGrid
+    pass: process.env.SENDGRID_API_KEY, // Tu API Key de SendGrid desde las variables de entorno
   },
 });
 
 const sendEmail = async (to, subject, text) => {
   const mailOptions = {
-    from: 'no-reply@example.com', // Dirección de correo válida
+    from: 'thebrowarmyacademy@gmail.com', // Dirección de correo verificada en SendGrid
     to: to, // Dirección de correo del usuario
     subject: subject,
-    text: text
+    text: text,
   };
 
   try {

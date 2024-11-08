@@ -180,7 +180,6 @@ ul {
 }
 
 .aside {
-  display: none;
   width: 200px;
   flex-shrink: 0;
 }
@@ -273,5 +272,8 @@ ul {
   }
   .container-btn{
     gap: 10px;
+  }
+  .aside {
+    display: none;
   }
 }
