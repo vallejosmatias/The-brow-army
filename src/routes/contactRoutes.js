@@ -1,5 +1,5 @@
 import express from "express";
-import sendEmail from "../config/mailConfig.js"; // Asegúrate de ajustar la ruta a tu archivo de configuración de emails
+import sendEmail from "../config/mailtrap.js"; // Asegúrate de ajustar la ruta a tu archivo de configuración de emails
 
 const router = express.Router();
 
