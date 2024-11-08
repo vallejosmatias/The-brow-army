@@ -128,14 +128,22 @@
     </div>
 
     <script>
-      // Manejar la eliminación de la cuenta
-      document.getElementById('deleteProfileButton').addEventListener('click', function() {
-        if (confirm('¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.')) {
-          const form = document.getElementById('deleteProfileForm');
-          form.method = 'DELETE';
-          form.submit();
+      document.getElementById("deleteProfileButton").addEventListener("click", async () => {
+    if (confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.")) {
+      try {
+        const response = await fetch("/profile", {
+          method: "DELETE",
+        });
+        if (response.ok) {
+          window.location.href = "/logout";
+        } else {
+          alert("Error al eliminar la cuenta.");
         }
-      });
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+  });
 
       // Desplazamiento suave
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
