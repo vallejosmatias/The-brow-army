@@ -55,3 +55,25 @@
 .container-btn .btn-volver:hover{
     background-color: #eeeeeeaf;
 }
+
+@media (max-width: 1000px) {
+ .datos h1{
+    font-size:30px
+ }
+ .datos p{
+    font-size: 15px;
+ }
+}
+
+@media (max-width: 720px) {
+    .container-service{
+        flex-direction: column;
+    }
+    .container-service .img img{
+        width: 250px;
+        height: 250px;
+    }
+    .datos h1{
+        font-size: 25px;
+    }
+}

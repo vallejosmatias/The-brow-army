@@ -75,9 +75,9 @@ app.post("/create_preference", async (req, res) => {
     const preferenceData = {
       items,
       back_urls: {
-        success: "http://localhost:3000/profile",
-        failure: "http://localhost:3000/api/my-cart",
-        pending: "http://localhost:3000/api/my-cart",
+        success: "http://thebrowarmy.com/profile",
+        failure: "http://thebrowarmy.com/api/my-cart",
+        pending: "http://thebrowarmy.com/api/my-cart",
       },
       auto_return: "approved",
       additional_info: `Total: ${total}`,

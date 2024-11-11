@@ -140,18 +140,21 @@ main {
 
 .contacto {
   display: flex;
-  width: 80%;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: center ;
   margin: 30px auto 80px;
   border-radius: 30px;
   background-color: #ef8d97;
 }
 
-.mapa {
-  padding: 70px 10px;
+.mapa{
+  width: 70%;
+  height: auto;
+  padding: 20px 40px;
 }
-
 .mapa iframe {
+  width: 100%;
+  height: 100%;
   border-radius: 30px;
   box-shadow: 3px 3px 4px;
 }
@@ -261,31 +264,54 @@ form button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
   }
   .container-liz img{
-    width: 470px;
+    width: 100%;
+    margin:  10px auto;
+    padding: 10px 30px;
   }
-  .cont-text h3{
-    font-size: 35px;
+  .container-text{
+    padding: 0;
   }
-  .cont-text p{
-    font-size: 15px;
+  .estructura{
+    padding: 20px;
   }
   .estructura img{
-    width: 200px;
-    height: 200px;
-    margin: auto ;
+    width: 150px;
+    height: auto;
+  }
+  .cont-text{
+    padding: 0;
+  }
+  .cont-text h3{
+    font-size: 25px;
+  }
+  .cont-text h3 svg{
+    width: 30px;
+  }
+  .cont-text p{
+    font-size: 13px;
+    width: 100%;
   }
   .agenda{
     flex-direction: column;
     align-items: center;
   }
+  .agenda img{
+    margin: auto;
+  }
+  .text{
+    width: 100%;
+  }
   .contacto {
     flex-direction: column;
-    width: 70%;
-    padding: 10px;
+    width: 90%; 
   }
  .mapa{
-  padding: 10px;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 20px auto;
  }
 }

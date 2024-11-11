@@ -276,4 +276,26 @@ ul {
   .aside {
     display: none;
   }
+  .fixed{
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .content{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+.container-form_group_edit{
+  flex-direction: column;
+  align-items: center;
+}
+.btn-submit{
+  font-size: 13px;
+}
+#deleteProfileButton{
+  font-size: 13px;
+}
 }

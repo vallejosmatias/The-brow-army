@@ -408,3 +408,12 @@ button.svelte-1ruergu.svelte-1ruergu{
   color: #000;
 }
 
+@media (max-width: 720px) {
+  .container-cards{
+    flex-direction: column;
+    padding: 10px;
+  }
+  .card{
+    width: 100%;
+  }
+}
