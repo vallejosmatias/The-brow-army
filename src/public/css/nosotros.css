@@ -299,7 +299,8 @@ form button:hover {
     align-items: center;
   }
   .agenda img{
-    margin: auto;
+    width: 350px;
+    margin: 10px auto;
   }
   .text{
     width: 100%;
