@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalText = document.getElementById("order-total").textContent;
     orderText += `\n${totalText}`;
 
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=1123160671&text=${encodeURIComponent(orderText)}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=5491123160671&text=${encodeURIComponent(orderText)}`;
     window.open(whatsappUrl, "_blank");
 
     // Limpiar el aside después de realizar el pedido
