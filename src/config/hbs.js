@@ -14,7 +14,7 @@ const hbs = exphbs.create({
     eq,
     // Helper para determinar la moneda
     currency(precio) {
-      return precio > 280 ? 'ARS' : 'USD';
+      return precio > 300 ? 'ARS' : 'USD';
     },
   },
 });
