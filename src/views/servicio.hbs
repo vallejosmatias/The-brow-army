@@ -12,11 +12,22 @@
       </div>
       <div class="datos">
         <h1>{{service.nombre}}</h1>
-        <p><strong>Descripción:</strong><br/> {{service.descripcion}}</p>
+        <p><strong>Descripción:</strong><br /> {{service.descripcion}}</p>
         <p>¡Descuento en efectivo o transferencia!</p>
-        <p><strong>Precio:</strong> ${{service.precio}} ({{currency service.precio}})</p>
+        <p><strong>Precio:</strong>
+          ${{service.precio}}
+          ({{currency service.precio}})</p>
+
+        {{#if (isUSD service.precio)}}
+          <p class="extra-info">*Abono en USD o su equivalente en ARS(cotización dolar blue)*</p>
+        {{/if}}
+
         <div class="container-btn">
-          <a class="btn-wapp" target="_blank" href="https://wa.me/5491123160671?text=Hola! Me gustaría hacer una consulta sobre {{service.nombre}}">Pedir turno</a>
+          <a
+            class="btn-wapp"
+            target="_blank"
+            href="https://wa.me/5491123160671?text=Hola! Me gustaría hacer una consulta sobre {{service.nombre}}"
+          >Pedir turno</a>
           <a class="btn-volver" href="/servicios">
             <svg
               height="16"

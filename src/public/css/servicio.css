@@ -18,6 +18,11 @@
     border-radius: 10px;
 }
 
+.extra-info{
+    font-size: 12px;
+    font-weight: 600;
+}
+
 .datos h1{
     text-transform: capitalize;
     margin: 10px 0 30px;
@@ -76,4 +81,5 @@
     .datos h1{
         font-size: 25px;
     }
+  
 }
